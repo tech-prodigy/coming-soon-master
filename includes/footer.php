@@ -37,7 +37,6 @@ else
 		</div>
 		<script type="text/javascript">
 			jQuery(".tooltips").tooltip();
-			alert("test");
 			jQuery("li > a").parents("li").each(function ()
 			{
 				if (jQuery(this).parent("ul.page-sidebar-menu").size() === 1)
@@ -99,6 +98,11 @@ else
 						{
 							switch(control_id)
 							{
+								case "google_map_settings":
+									var message = "<?php _e("Your request email has been sent successfully.",coming_soon_master)?>";
+									var success = "<?php _e("Success!",coming_soon_master)?>";
+								break;
+
 								case "feature_request":
 									var message = "<?php _e("Your request email has been sent successfully.",coming_soon_master)?>";
 									var success = "<?php _e("Success!",coming_soon_master)?>";
@@ -1719,14 +1723,18 @@ else
 
 				case "csm_google_map_settings":
 					?>
-					jQuery("#ux_li_contact_form").addClass("active");
-					jQuery("#ux_li_google_map_settings").addClass("active");
-
 					jQuery(document).ready(function()
 					{
+						jQuery("#ux_li_contact_form").addClass("active");
+						jQuery("#ux_li_google_map_settings").addClass("active");
+						change_display();
+						csm_initialize();
+						digits_dots_only();
 						change_google_map();
 						change_location();
 						csm_initialize();
+						jQuery("#ux_ddl_google_map").val("<?php echo isset($meta_data_array["google_map_settings"]) ? $meta_data_array["google_map_settings"] : "";?>");
+						jQuery("#ux_ddl_location").val("<?php echo isset($meta_data_array["located_address_by"]) ? $meta_data_array["located_address_by"] : "";?>");
 					});
 					var latitude = 35.38453628611739;
 					var longitude = -97.03259696914063;
@@ -1735,11 +1743,7 @@ else
 					load_sidebar_content();
 					jQuery(document).ready(function()
 					{
-						jQuery("#ux_li_locations").addClass("active");
-						jQuery("#ux_li_add_new_location").addClass("active");
-						change_display();
-						csm_initialize();
-						digits_dots_only();
+
 					});
 
 					if(typeof(csm_initialize) != "function")
@@ -1864,7 +1868,22 @@ else
 						},
 						submitHandler: function(form)
 						{
-
+							jQuery.post(ajaxurl,
+							{
+								data: jQuery("#ux_frm_google_map_settings").serialize(),
+								param: "google_map_module",
+								action: "coming_soon_master",
+								_wp_nonce:"<?php echo $csm_google_map_settings;?>"
+							},
+							function()
+							{
+								overlay_loading("google_map_settings");
+								setTimeout(function()
+								{
+									remove_overlay();
+									window.location.href = "admin.php?page=csm_google_map_settings";
+								}, 3000);
+							});
 						}
 					});
 

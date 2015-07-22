@@ -10,19 +10,19 @@ else
 		case "administrator":
 			$user_role_permission = "manage_options";
 		break;
-		
+
 		case "author":
 			$user_role_permission = "publish_posts";
 		break;
-		
+
 		case "editor":
 			$user_role_permission = "public_pages";
 		break;
-		
+
 		case "contributor":
 			$user_role_permission = "edit_posts";
 		break;
-		
+
 		case "subscriber":
 			$user_role_permission = "read";
 		break;
@@ -33,6 +33,7 @@ else
 	}
 	else
 	{
+			$csm_google_map_settings = wp_create_nonce("coming_soon_master_google_map_settings");
 		?>
 		<div class="page-content-wrapper">
 			<div class="page-content">
@@ -58,7 +59,7 @@ else
 							</span>
 						</li>
 					</ul>
-				</div>	
+				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="portlet box purple">
@@ -102,7 +103,7 @@ else
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Formatted Address Here",coming_soon_master)?>" data-placement="right"></i>
 														<span class="required" aria-required="true">*</span>
 													</label>
-													<input type="text" class="form-control" name="ux_txt_formatted_address" id="ux_txt_formatted_address" placeholder="<?php _e("Please Enter Your Formatted Address Here",coming_soon_master)?>" value="<?php echo stripslashes(urldecode(isset($meta_data_array["formatted_address"]) ? $meta_data_array["formatted_address"] : ""));?>">
+													<input type="text" class="form-control" name="ux_txt_formatted_address" id="ux_txt_formatted_address" placeholder="<?php _e("Please Enter Your Formatted Address Here",coming_soon_master)?>" value="<?php echo stripslashes(urldecode(isset($meta_data_array["formatted_address"]) ? $meta_data_array["formatted_address"] : "singapore"));?>">
 												</div>
 											</div>
 											<div id="ux_div_area_code">
@@ -112,7 +113,7 @@ else
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Area Code/ZIP Code Here",coming_soon_master)?>" data-placement="right"></i>
 														<span class="required" aria-required="true">*</span>
 													</label>
-													<input type="text" class="form-control" name="ux_txt_area_code" id="ux_txt_area_code" placeholder="<?php _e("Please Enter Your Area Code/ZIP Code Here",coming_soon_master)?>" value="<?php echo isset($meta_data_array["area_zip_code"]) ? $meta_data_array["area_zip_code"] : "";?>">
+													<input type="text" class="form-control" name="ux_txt_area_code" id="ux_txt_area_code" placeholder="<?php _e("Please Enter Your Area Code/ZIP Code Here",coming_soon_master)?>" value="<?php echo isset($meta_data_array["area_zip_code"]) ? $meta_data_array["area_zip_code"] : "singapore 247964";?>">
 												</div>
 											</div>
 											<div id="ux_div_latitude">
@@ -124,7 +125,7 @@ else
 																<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Latitude Here",coming_soon_master)?>" data-placement="right"></i>
 																<span class="required" aria-required="true">*</span>
 															</label>
-															<input type="text" class="form-control" name="ux_txt_latitude" id="ux_txt_latitude" placeholder="<?php _e("Please Enter Your Latitude Here",coming_soon_master)?>" onblur="change_location();" value="<?php echo isset($meta_data_array["latitude"]) ? $meta_data_array["latitude"] : "";?>">
+															<input type="text" class="form-control" name="ux_txt_latitude" id="ux_txt_latitude" placeholder="<?php _e("Please Enter Your Latitude Here",coming_soon_master)?>" onblur="change_location();" value="<?php echo isset($meta_data_array["latitude"]) ? $meta_data_array["latitude"] : "1.330256";?>">
 														</div>
 													</div>
 													<div class="col-md-6">
@@ -134,7 +135,7 @@ else
 																<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Longitude Here",coming_soon_master)?>" data-placement="right"></i>
 																<span class="required" aria-required="true">*</span>
 															</label>
-															<input type="text" class="form-control" name="ux_txt_longitude" id="ux_txt_longitude" placeholder="<?php _e("Please Enter Your Longitude Here",coming_soon_master)?>" onblur="change_location();" value="<?php echo isset($meta_data_array["longitude"]) ? $meta_data_array["longitude"] : "";?>">
+															<input type="text" class="form-control" name="ux_txt_longitude" id="ux_txt_longitude" placeholder="<?php _e("Please Enter Your Longitude Here",coming_soon_master)?>" onblur="change_location();" value="<?php echo isset($meta_data_array["longitude"]) ? $meta_data_array["longitude"] : "103.906374";?>">
 														</div>
 													</div>
 												</div>

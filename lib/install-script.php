@@ -113,7 +113,7 @@ else
 				)
 				ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 COLLATE= utf8_general_ci";
 				dbDelta($sql2);
-				
+
 				$var = "INSERT INTO ". coming_soon_master() ." (`meta_id`, `type`, `parent_id`) VALUES
 				(1, 'layout_settings', 0),
 				(2, 'logo_settings', 1),

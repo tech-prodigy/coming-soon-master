@@ -53,6 +53,31 @@ else
 					}
 					die();
 				break;
+
+				case "google_map_module" :
+					if(wp_verify_nonce($_REQUEST["_wp_nonce"], "coming_soon_master_google_map_settings"))
+					{
+						parse_str($_REQUEST["data"],$form_data);
+						$update_google_map = array();
+						$where = array();
+
+						$update_google_map["google_map_settings"] = esc_attr($form_data["ux_ddl_google_map"]);
+						$update_google_map["located_address_by"] = esc_attr($form_data["ux_ddl_location"]);
+						$update_google_map["formatted_address"] = esc_attr($form_data["ux_div_format"]);
+						$update_google_map["area_zip_code"] = esc_attr($form_data["ux_div_area_code"]);
+						$update_google_map["latitude"] = esc_attr($form_data["ux_txt_latitude"]);
+						$update_google_map["longitude"] = esc_attr($form_data["ux_txt_longitude"]);
+
+						foreach($update_google_map as $keys => $value)
+						{
+							$update_google_value = array();
+							$where["meta_key"] = $keys;
+							$update_google_value["meta_value"] = $value;
+							$obj_dbHelper->updateCommand(coming_soon_meta(),$update_google_value,$where);
+						}
+					}
+					die();
+				break;
 				case "logo_settings_module" :
 					if(wp_verify_nonce($_REQUEST["_wp_nonce"], "coming_soon_master_logo_settings"))
 					{
@@ -76,7 +101,7 @@ else
 						$update_logo_settings["max_height"] = esc_attr($form_data["ux_txt_width"]);
 						$update_logo_settings["max_width"] = esc_attr($form_data["ux_txt_height"]);
 						$update_logo_settings["custom_css_logo"] = esc_attr($form_data["ux_txtarea_css_logo"]);
-						
+
 
 						foreach($update_logo_settings as $keys => $value)
 						{
@@ -95,7 +120,7 @@ else
 						parse_str($_REQUEST["data"],$form_data);
 						$update_heading_settings = array();
 						$where = array();
-						
+
 						$update_heading_settings["heading_settings"] = esc_attr($form_data["ux_ddl_heading_settings"]);
 						$update_heading_settings["heading_text"] = esc_attr($form_data["ux_heading_content"]);
 						$update_heading_settings["font_style_heading"] = esc_attr(implode(",",$form_data["ux_ddl_font_style_heading"]));
@@ -103,7 +128,7 @@ else
 						$update_heading_settings["heading_position"] = esc_attr($form_data["ux_ddl_heading_position"]);
 						$update_heading_settings["margin_heading"] = esc_attr(implode(",",$form_data["ux_txt_heading_margin_text"]));
 						$update_heading_settings["padding_heading"] = esc_attr(implode(",",$form_data["ux_txt_heading_padding_text"]));
-						
+
 						foreach($update_heading_settings as $keys => $value)
 						{
 							$update_heading_value = array();
@@ -114,14 +139,14 @@ else
 					}
 					die();
 				break;
-				
+
 				case "description_settings_module" :
 					if(wp_verify_nonce($_REQUEST["_wp_nonce"], "coming_soon_master_description_settings"))
 					{
 						parse_str($_REQUEST["data"],$form_data);
 						$update_description_settings = array();
 						$where = array();
-				
+
 						$update_description_settings["description_settings"] = esc_attr($form_data["ux_ddl_description_settings"]);
 						$update_description_settings["description_text"] = esc_attr($form_data["ux_description_content"]);
 						$update_description_settings["font_style_description"] = esc_attr(implode(",",$form_data["ux_ddl_font_style_des"]));
@@ -129,7 +154,7 @@ else
 						$update_description_settings["description_position"] = esc_attr($form_data["ux_ddl_description_position"]);
 						$update_description_settings["margin_description"] = esc_attr(implode(",",$form_data["ux_txt_des_margin_text"]));
 						$update_description_settings["padding_description"] = esc_attr(implode(",",$form_data["ux_txt_des_padding_text"]));
-				
+
 						foreach($update_description_settings as $keys => $value)
 						{
 							$update_description_value = array();
@@ -140,14 +165,14 @@ else
 					}
 					die();
 				break;
-				
+
 				case "footer_settings_module" :
 					if(wp_verify_nonce($_REQUEST["_wp_nonce"], "coming_soon_master_footer_settings"))
 					{
 						parse_str($_REQUEST["data"],$form_data);
 						$update_footer_settings = array();
 						$where = array();
-				
+
 						$update_footer_settings["footer_settings"] = esc_attr($form_data["ux_ddl_footer_settings"]);
 						$update_footer_settings["footer_text"] = esc_attr($form_data["ux_footer_content"]);
 						$update_footer_settings["font_style_footer"] = esc_attr(implode(",",$form_data["ux_ddl_font_style_ftr"]));
@@ -155,7 +180,7 @@ else
 						$update_footer_settings["footer_position"] = esc_attr($form_data["ux_ddl_footer_position"]);
 						$update_footer_settings["margin_footer"] = esc_attr(implode(",",$form_data["ux_txt_footer_margin_text"]));
 						$update_footer_settings["padding_footer"] = esc_attr(implode(",",$form_data["ux_txt_footer_padding_text"]));
-				
+
 						foreach($update_footer_settings as $keys => $value)
 						{
 							$update_footer_settings = array();
@@ -166,17 +191,17 @@ else
 					}
 					die();
 				break;
-				
+
 				case "favicon_settings_module" :
 					if(wp_verify_nonce($_REQUEST["_wp_nonce"], "coming_soon_master_favicon_settings"))
 					{
 						parse_str($_REQUEST["data"],$form_data);
 						$update_favicon_settings = array();
 						$where = array();
-				
+
 						$update_favicon_settings["favicon_settings"] = esc_attr($form_data["ux_ddl_favicon_settings"]);
 						$update_favicon_settings["upload_favicon"] = esc_attr($form_data["ux_txt_upload"]);
-						
+
 						foreach($update_favicon_settings as $keys => $value)
 						{
 							$update_favicon_settings = array();
