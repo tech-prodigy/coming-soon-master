@@ -37,7 +37,6 @@ else
 		</div>
 		<script type="text/javascript">
 			jQuery(".tooltips").tooltip();
-			alert("there");
 			jQuery("li > a").parents("li").each(function ()
 			{
 				if (jQuery(this).parent("ul.page-sidebar-menu").size() === 1)
