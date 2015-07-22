@@ -10,19 +10,19 @@ else
 		case "administrator":
 			$user_role_permission = "manage_options";
 		break;
-		
+
 		case "author":
 			$user_role_permission = "publish_posts";
 		break;
-		
+
 		case "editor":
 			$user_role_permission = "public_pages";
 		break;
-		
+
 		case "contributor":
 			$user_role_permission = "edit_posts";
 		break;
-		
+
 		case "subscriber":
 			$user_role_permission = "read";
 		break;
@@ -63,7 +63,7 @@ else
 							</span>
 						</li>
 					</ul>
-				</div>	
+				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="portlet box purple">
@@ -104,7 +104,7 @@ else
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
-														<label class="control-label">	
+														<label class="control-label">
 															<?php _e("Logo Position",coming_soon_master)?> :
 															<i class="icon-question tooltips" data-original-title="<?php _e("Please Select Logo Position",coming_soon_master)?>" data-placement="right"></i>
 															<span class="required" aria-required="true">*</span>
@@ -137,23 +137,23 @@ else
 																<i class="icon-question tooltips" data-original-title="<?php _e("Please Select Font Style",coming_soon_master) ?>" data-placement="right"></i>
 																<span class="required" aria-required="true">*</span>
 															</label>
-															
+
 															<div class="input-icon right">
 																<select class="form-control custom-input-medium input-inline" name="ux_ddl_font_style_logo[]" id="ux_ddl_font_style">
-																	<?php 
+																	<?php
 																	for($flag = 1;$flag <= 100;$flag++)
 																	{
 																		if($flag < 10)
 																		{
 																			?>
 																			<option value="<?php echo $flag;?>px">0<?php echo $flag;?> Px</option>
-																			<?php 
+																			<?php
 																		}
 																		else
 																		{
 																			?>
 																			<option value="<?php echo $flag;?>px"><?php echo $flag;?> Px</option>
-																			<?php 
+																			<?php
 																		}
 																	}
 																	?>
@@ -170,13 +170,13 @@ else
 												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group">
-															<label class="control-label">	
+															<label class="control-label">
 																<?php _e("Font Family",coming_soon_master)?> :
 																<i class="icon-question tooltips" data-original-title="<?php _e("Please Select Font Family",coming_soon_master)?>" data-placement="right"></i>
 																<span class="required" aria-required="true">*</span>
 															</label>
 															<select class="form-control" name="ux_ddl_font_family" id="ux_ddl_font_family">
-																<?php 
+																<?php
 																foreach($web_font_list as $key => $val)
 																{
 																	?>
@@ -310,7 +310,6 @@ else
 												<label class="control-label">
 													<?php _e("Custom CSS",coming_soon_master) ?> :
 													<i class="icon-question tooltips" data-original-title="<?php _e("Enter Custom CSS",coming_soon_master)?>" data-placement="right"></i>
-													<span class="required" aria-required="true">*</span>
 												</label>
 												<textarea class="form-control" name="ux_txtarea_css_logo" id="ux_txtarea_css_logo" placeholder="<?php _e("Enter Custom CSS",coming_soon_master); ?>" value="<?php echo isset($meta_data_array["custom_css_logo"]) ? $meta_data_array["custom_css_logo"] : "";?>"></textarea>
 											</div>
