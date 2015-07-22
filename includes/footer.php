@@ -3,7 +3,7 @@ if(!is_user_logged_in())
 {
 	return;
 }
-else 
+else
 {
 	switch($csm_role)
 	{
@@ -127,7 +127,7 @@ else
 					}
 				}
 
-		<?php 
+		<?php
 		if(isset($_REQUEST["page"]))
 		{
 			switch(esc_attr($_REQUEST["page"]))
@@ -410,7 +410,7 @@ else
 						jQuery("#ux_ddl_font_heading_settings").val("<?php echo isset($meta_data_array["font_style_heading"]) ? $font_style[1] : "bold";?>");
 						jQuery("#ux_ddl_font_family_heading").val("<?php echo isset($meta_data_array["font_family_heading"]) ? $meta_data_array["font_family_heading"] : "Roboto Condensed";?>");
 						jQuery("#ux_ddl_heading_position").val("<?php echo isset($meta_data_array["heading_position"]) ? $meta_data_array["heading_position"] : "top";?>");
-						
+
 						change_heading_settings();
 						jQuery("#ux_clr_heading_settings").colpick
 						({
@@ -1096,9 +1096,11 @@ else
 					jQuery("#ux_li_subscription_description_settings").addClass("active");
 					jQuery(document).ready(function()
 					{
-						jQuery("#ux_ddl_font_style_description_subscription").val("<?php echo $font_style[0];?>");
-						jQuery("#ux_ddl_font_description_settings_subscription").val("<?php echo $font_style[1];?>");
-						jQuery("#ux_ddl_font_family_description_subscription").val("<?php echo $meta_data_array["font_family_description_subscription"];?>");
+						jQuery("#ux_ddl_description_settings_subscription").val("<?php echo isset($meta_data_array["description_settings_subscription"]) ? $meta_data_array["description_settings_subscription"] : "show";?>");
+						jQuery("#ux_ddl_font_style_description_subscription").val("<?php echo isset($meta_data_array["font_style_description_subscription"]) ? $font_style[0] : "20px"?>");
+						jQuery("#ux_ddl_font_description_settings_subscription").val("<?php echo isset($meta_data_array["font_style_description_subscription"]) ? $font_style[1] : "bold";?>");
+						jQuery("#ux_ddl_font_family_description_subscription").val("<?php echo isset($meta_data_array["font_family_description_subscription"]) ? $meta_data_array["font_family_description_subscription"] : "Roboto Condensed";?>");
+						jQuery("#ux_ddl_description_positions").val("<?php echo isset($meta_data_array["description_position_subscription"]) ? $meta_data_array["description_position_subscription"] : "top";?>");
 
 						change_description_settings_subscription();
 						jQuery("#ux_clr_description_settings_subscription").colpick
@@ -1142,6 +1144,38 @@ else
 							ux_description_content_subscription:
 							{
 								required: true
+							},
+							ux_txt_sub_des_margin_top_text:
+							{
+								required: true
+							},
+							ux_txt_sub_des_margin_right_text:
+							{
+								required: true
+							},
+							ux_txt_sub_des_margin_bottom_text:
+							{
+								required: true
+							},
+							ux_txt_sub_des_margin_left_text:
+							{
+								required: true
+							},
+							ux_txt_sub_des_padding_top_text:
+							{
+								required: true
+							},
+							ux_txt_sub_des_padding_right_text:
+							{
+								required: true
+							},
+							ux_txt_sub_des_padding_bottom_text:
+							{
+								required: true
+							},
+							ux_txt_sub_des_padding_left_text:
+							{
+								required: true
 							}
 						},
 
@@ -1163,7 +1197,22 @@ else
 						},
 						submitHandler: function(form)
 						{
-
+							jQuery.post(ajaxurl,
+							{
+								data: jQuery("#ux_frm_subscription_description_settings").serialize(),
+								param: "subscription_description_settings_module",
+								action: "coming_soon_master",
+								_wp_nonce:"<?php echo $csm_subscription_description_settings;?>"
+							},
+							function()
+							{
+								overlay_loading("update_subscription_description_settings");
+								setTimeout(function()
+								{
+									remove_overlay();
+									window.location.href = "admin.php?page=csm_subscription_description_settings";
+								}, 3000);
+							});
 						}
 					});
 					<?php
@@ -1347,9 +1396,11 @@ else
 					jQuery("#ux_li_subscription_error_settings").addClass("active");
 					jQuery(document).ready(function()
 					{
-						jQuery("#ux_ddl_font_style_error_subscription").val("<?php echo $font_style[0];?>");
-						jQuery("#ux_ddl_font_heading_settings_subscription").val("<?php echo $font_style[1];?>");
-						jQuery("#ux_ddl_font_family_error_subscription").val("<?php echo $meta_data_array["font_family_subscription"];?>");
+						jQuery("#ux_ddl_error_settings_subscription").val("<?php echo isset($meta_data_array["error_settings_subscription"]) ? $meta_data_array["error_settings_subscription"] : "show";?>");
+						jQuery("#ux_ddl_font_style_error_subscription").val("<?php echo isset($meta_data_array["font_style_error_subscription"]) ? $font_style[0] : "20px"?>");
+						jQuery("#ux_ddl_font_error_settings_subscription").val("<?php echo isset($meta_data_array["font_style_error_subscription"]) ? $font_style[1] : "bold";?>");
+						jQuery("#ux_ddl_font_family_error_subscription").val("<?php echo isset($meta_data_array["font_family_subscription"]) ? $meta_data_array["font_family_subscription"] : "Roboto Condensed";?>");
+						jQuery("#ux_ddl_error_positions").val("<?php echo isset($meta_data_array["error_position_subscription"]) ? $meta_data_array["error_position_subscription"] : "top";?>");
 
 						change_error_settings_subscription();
 						jQuery("#ux_clr_error_settings_subscription").colpick
@@ -1414,7 +1465,22 @@ else
 						},
 						submitHandler: function(form)
 						{
-
+							jQuery.post(ajaxurl,
+							{
+								data: jQuery("#ux_frm_subscription_error_settings").serialize(),
+								param: "subscription_error_settings_module",
+								action: "coming_soon_master",
+								_wp_nonce:"<?php echo $csm_subscription_error_settings;?>"
+							},
+							function()
+							{
+								overlay_loading("update_subscription_error_settings");
+								setTimeout(function()
+								{
+									remove_overlay();
+									window.location.href = "admin.php?page=csm_subscription_error_settings";
+								}, 3000);
+							});
 						}
 					});
 					<?php
@@ -1720,26 +1786,22 @@ else
 					?>
 					jQuery("#ux_li_contact_form").addClass("active");
 					jQuery("#ux_li_google_map_settings").addClass("active");
+				
 
 					jQuery(document).ready(function()
 					{
+						change_display();
+						digits_dots_only();
 						change_google_map();
 						change_location();
 						csm_initialize();
 					});
-					var latitude = 35.38453628611739; 
+					var latitude = 35.38453628611739;
 					var longitude = -97.03259696914063;
 					var input = "";
 
 					load_sidebar_content();
-					jQuery(document).ready(function()
-					{
-						jQuery("#ux_li_locations").addClass("active");
-						jQuery("#ux_li_add_new_location").addClass("active");
-						change_display();	
-						csm_initialize();
-						digits_dots_only();
-					});
+
 
 					if(typeof(csm_initialize) != "function")
 					{
@@ -1813,7 +1875,7 @@ else
 									jQuery("#ux_div_format").css("display","none");
 									jQuery("#ux_div_area_code").css("display","none");
 									jQuery("#ux_div_latitude").css("display","block");
-									
+
 									latitude = jQuery("#ux_txt_latitude").val();
 									longitude = jQuery("#ux_txt_longitude").val();
 									csm_initialize();
@@ -1867,9 +1929,9 @@ else
 						}
 					});
 
-					jQuery('#ux_txt_latitude').keypress(function(event) 
+					jQuery('#ux_txt_latitude').keypress(function(event)
 					{
-						if(event.which == 8 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46 || event.keyCode == 9) 
+						if(event.which == 8 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46 || event.keyCode == 9)
 						{
 							return true;
 						}
@@ -1879,9 +1941,9 @@ else
 						}
 					});
 
-					jQuery('#ux_txt_longitude').keypress(function(event) 
+					jQuery('#ux_txt_longitude').keypress(function(event)
 					{
-						if(event.which == 8 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46 || event.keyCode == 9) 
+						if(event.which == 8 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46 || event.keyCode == 9)
 						{
 							return true;
 						}
@@ -2019,7 +2081,7 @@ else
 								if (value_array.length > 1)
 								{
 									var temp_line = "";
-									jQuery.each(value_array, function (key, line) 
+									jQuery.each(value_array, function (key, line)
 									{
 										var tab = ( key == 0 ) ? 0 : 25;
 										temp_line = temp_line + jQuery.getSystemReport("", tab, " ", "f") + line + "\n";
