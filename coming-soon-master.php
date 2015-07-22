@@ -282,12 +282,12 @@ if(!function_exists("helper_class_for_coming_soon_master"))
 			$csm_role = $wpdb->prefix . "capabilities";
 			$current_user->role = array_key($current_user->$csm_role);
 			$csm_role = $current_user->role[0];
-		}	
+		}
 		if(file_exists(COMING_SOON_MASTER_DIR_PATH."lib/helper.php"))
 		{
 			include_once COMING_SOON_MASTER_DIR_PATH."lib/helper.php";
 		}
-		
+
 	}
 }
 

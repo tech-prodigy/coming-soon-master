@@ -3,7 +3,7 @@ if(!is_user_logged_in())
 {
 	return;
 }
-else 
+else
 {
 	switch($csm_role)
 	{
@@ -127,7 +127,7 @@ else
 					}
 				}
 
-		<?php 
+		<?php
 		if(isset($_REQUEST["page"]))
 		{
 			switch(esc_attr($_REQUEST["page"]))
@@ -410,7 +410,7 @@ else
 						jQuery("#ux_ddl_font_heading_settings").val("<?php echo isset($meta_data_array["font_style_heading"]) ? $font_style[1] : "bold";?>");
 						jQuery("#ux_ddl_font_family_heading").val("<?php echo isset($meta_data_array["font_family_heading"]) ? $meta_data_array["font_family_heading"] : "Roboto Condensed";?>");
 						jQuery("#ux_ddl_heading_position").val("<?php echo isset($meta_data_array["heading_position"]) ? $meta_data_array["heading_position"] : "top";?>");
-						
+
 						change_heading_settings();
 						jQuery("#ux_clr_heading_settings").colpick
 						({
@@ -923,9 +923,8 @@ else
 					jQuery("#ux_li_counter").addClass("active");
 					jQuery(document).ready(function()
 					{
-						jQuery("#ux_ddl_font_style_counter").val("<?php echo $font_style[0];?>");
-						jQuery("#ux_ddl_font_counter").val("<?php echo $font_style[1];?>");
-						jQuery("#ux_ddl_font_family_counter").val("<?php echo $meta_data_array["font_family_countdown"];?>");
+						jQuery("#ux_ddl_font_style_counter").val("<?php echo isset($meta_data_array["font_style_counter"]) ? $font_style[01px];?>");
+						jQuery("#ux_ddl_font_family_counter").val("<?php echo $meta_data_array["font_family_countdown"]) ? $font_family[ABeeZee];?>");
 
 						change_countdown_timer();
 						jQuery("#ux_clr_counter").colpick
@@ -998,7 +997,22 @@ else
 						},
 						submitHandler: function(form)
 						{
-
+							jQuery.post(ajaxurl,
+							{
+								data: jQuery("#ux_frm_counter").serialize(),
+								param: "counter_module",
+								action: "coming_soon_master",
+								_wp_nonce:"<?php echo $csm_counter;?>"
+							},
+							function()
+							{
+								overlay_loading("update_counter");
+								setTimeout(function()
+								{
+									remove_overlay();
+									window.location.href = "admin.php?page=csm_counter";
+								}, 3000);
+							});
 						}
 					});
 					<?php
@@ -1727,7 +1741,7 @@ else
 						change_location();
 						csm_initialize();
 					});
-					var latitude = 35.38453628611739; 
+					var latitude = 35.38453628611739;
 					var longitude = -97.03259696914063;
 					var input = "";
 
@@ -1736,7 +1750,7 @@ else
 					{
 						jQuery("#ux_li_locations").addClass("active");
 						jQuery("#ux_li_add_new_location").addClass("active");
-						change_display();	
+						change_display();
 						csm_initialize();
 						digits_dots_only();
 					});
@@ -1813,7 +1827,7 @@ else
 									jQuery("#ux_div_format").css("display","none");
 									jQuery("#ux_div_area_code").css("display","none");
 									jQuery("#ux_div_latitude").css("display","block");
-									
+
 									latitude = jQuery("#ux_txt_latitude").val();
 									longitude = jQuery("#ux_txt_longitude").val();
 									csm_initialize();
@@ -1867,9 +1881,9 @@ else
 						}
 					});
 
-					jQuery('#ux_txt_latitude').keypress(function(event) 
+					jQuery('#ux_txt_latitude').keypress(function(event)
 					{
-						if(event.which == 8 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46 || event.keyCode == 9) 
+						if(event.which == 8 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46 || event.keyCode == 9)
 						{
 							return true;
 						}
@@ -1879,9 +1893,9 @@ else
 						}
 					});
 
-					jQuery('#ux_txt_longitude').keypress(function(event) 
+					jQuery('#ux_txt_longitude').keypress(function(event)
 					{
-						if(event.which == 8 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46 || event.keyCode == 9) 
+						if(event.which == 8 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46 || event.keyCode == 9)
 						{
 							return true;
 						}
@@ -2019,7 +2033,7 @@ else
 								if (value_array.length > 1)
 								{
 									var temp_line = "";
-									jQuery.each(value_array, function (key, line) 
+									jQuery.each(value_array, function (key, line)
 									{
 										var tab = ( key == 0 ) ? 0 : 25;
 										temp_line = temp_line + jQuery.getSystemReport("", tab, " ", "f") + line + "\n";

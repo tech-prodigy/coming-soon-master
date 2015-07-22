@@ -10,19 +10,19 @@ else
 		case "administrator":
 			$user_role_permission = "manage_options";
 		break;
-		
+
 		case "author":
 			$user_role_permission = "publish_posts";
 		break;
-		
+
 		case "editor":
 			$user_role_permission = "public_pages";
 		break;
-		
+
 		case "contributor":
 			$user_role_permission = "edit_posts";
 		break;
-		
+
 		case "subscriber":
 			$user_role_permission = "read";
 		break;
@@ -57,7 +57,7 @@ else
 							</span>
 						</li>
 					</ul>
-				</div>	
+				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="portlet box purple">
@@ -101,66 +101,66 @@ else
 															<span class="required" aria-required="true">*</span>
 														</label>
 														<div class="input-icon right">
-															<select class="form-control input-width-30-dp input-inline" name="ux_ddl_hours" id="ux_ddl_hours" value="<?php echo $launch_time[0];?>">
-																<?php 
+															<select class="form-control input-width-30-dp input-inline" name="ux_ddl_hr_min_sec[]" id="ux_ddl_hours" value="<?php echo $launch_time[0];?>">
+																<?php
 																for($flag = 0;$flag <= 23;$flag++)
 																{
 																	if($flag < 10)
 																	{
 																		?>
 																		<option value="<?php echo $flag;?>">0<?php echo $flag;?></option>
-																		<?php 
+																		<?php
 																	}
 																	else
 																	{
 																		?>
 																		<option value="<?php echo $flag;?>"><?php echo $flag;?></option>
-																		<?php 
+																		<?php
 																	}
 																}
 																?>
 															</select>
-															<select class="form-control input-width-30-dp input-inline" name="ux_ddl_minutes" id="ux_ddl_minutes" value="<?php echo $launch_time[1];?>">
-																<?php 
+															<select class="form-control input-width-30-dp input-inline" name="ux_ddl_hr_min_sec[]" id="ux_ddl_minutes" value="<?php echo $launch_time[1];?>">
+																<?php
 																for($flag = 0;$flag <= 59;$flag++)
 																{
 																	if($flag < 10)
 																	{
 																		?>
 																		<option value="<?php echo $flag;?>">0<?php echo $flag;?></option>
-																		<?php 
+																		<?php
 																	}
 																	else
 																	{
 																		?>
 																		<option value="<?php echo $flag;?>"><?php echo $flag;?></option>
-																		<?php 
+																		<?php
 																	}
 																}
 																?>
 															</select>
-															<select class="form-control input-width-30-dp input-inline" name="ux_ddl_seconds" id="ux_ddl_seconds" value="<?php echo $launch_time[2];?>">
-																<?php 
+															<select class="form-control input-width-30-dp input-inline" name="ux_ddl_hr_min_sec[]" id="ux_ddl_seconds" value="<?php echo $launch_time[2];?>">
+																<?php
 																for($flag = 0;$flag <= 59;$flag++)
 																{
 																	if($flag < 10)
 																	{
 																		?>
 																		<option value="<?php echo $flag;?>">0<?php echo $flag;?></option>
-																		<?php 
+																		<?php
 																	}
 																	else
 																	{
 																		?>
 																		<option value="<?php echo $flag;?>"><?php echo $flag;?></option>
-																		<?php 
+																		<?php
 																	}
 																}
 																?>
 															</select>
 														</div>
 													</div>
-												</div>	
+												</div>
 											</div>
 											<div class="form-group">
 												<label class="control-label">
@@ -316,43 +316,43 @@ else
 															<span class="required" aria-required="true">*</span>
 														</label>
 														<div class="input-icon right">
-															<select class="form-control input-width-25 input-inline" name="ux_ddl_font_style_counter" id="ux_ddl_font_style_counter">
-																<?php 
+															<select class="form-control input-width-25 input-inline" name="ux_ddl_font_style_counter[]" id="ux_ddl_font_style_counter">
+																<?php
 																for($flag = 1;$flag <= 100;$flag++)
 																{
 																	if($flag < 10)
 																	{
 																		?>
 																		<option value="<?php echo $flag;?>px">0<?php echo $flag;?> Px</option>
-																		<?php 
+																		<?php
 																	}
 																	else
 																	{
 																		?>
 																		<option value="<?php echo $flag;?>px"><?php echo $flag;?> Px</option>
-																		<?php 
+																		<?php
 																	}
 																}
 																?>
 															</select>
-															<select class="form-control input-width-25 input-inline" name="ux_ddl_font_counter" id="ux_ddl_font_counter">
+															<select class="form-control input-width-25 input-inline" name="ux_ddl_font_style_counter[]" id="ux_ddl_font_counter">
 																<option value="bold"><?php _e("Bold",coming_soon_master)?></option>
 																<option value="italic"><?php _e("Italic",coming_soon_master)?></option>
 																<option value="normal"><?php _e("Normal",coming_soon_master)?></option>
 															</select>
-															<input type="text" name="ux_clr_counter" id="ux_clr_counter" class="form-control input-normal input-inline" placeholder="<?php _e("Color",coming_soon_master)?>" value="<?php echo $font_style[2];?>">
+															<input type="text" name="ux_ddl_font_style_counter[]" id="ux_clr_counter" class="form-control input-normal input-inline" placeholder="<?php _e("Color",coming_soon_master)?>" value="<?php echo $font_style[2];?>">
 														</div>
 													</div>
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
-														<label class="control-label">	
+														<label class="control-label">
 															<?php _e("Font Family",coming_soon_master)?> :
 															<i class="icon-question tooltips" data-original-title="<?php _e("Please Select Font Family",coming_soon_master)?>" data-placement="right"></i>
 															<span class="required" aria-required="true">*</span>
 														</label>
 														<select class="form-control" name="ux_ddl_font_family_counter" id="ux_ddl_font_family_counter">
-															<?php 
+															<?php
 															foreach($web_font_list as $key => $val)
 															{
 																?>
@@ -365,7 +365,7 @@ else
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="control-label">	
+												<label class="control-label">
 													<?php _e("Countdown Position",coming_soon_master)?> :
 													<i class="icon-question tooltips" data-original-title="<?php _e("Please Select Countdown Position",coming_soon_master)?>" data-placement="right"></i>
 													<span class="required" aria-required="true">*</span>
@@ -386,10 +386,10 @@ else
 															<span class="required" aria-required="true">*</span>
 														</label>
 														<div class="input-icon right">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrf_text" id="ux_txt_marginwrf_text" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo $margin[0];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrg_text" id="ux_txt_marginwrg_text" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo $margin[0];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrh_text" id="ux_txt_marginwrh_text" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo $margin[0];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrj_text" id="ux_txt_marginwrj_text" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo $margin[0];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrf_text[]" id="ux_txt_marginwrf_top_text" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo $margin[0];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrg_text[]" id="ux_txt_marginwrg_right_text" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo $margin[0];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrh_text[]" id="ux_txt_marginwrh_bottom_text" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo $margin[0];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrj_text[]" id="ux_txt_marginwrj_left_text" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo $margin[0];?>">
 														</div>
 													</div>
 												</div>
@@ -401,10 +401,10 @@ else
 															<span class="required" aria-required="true">*</span>
 														</label>
 														<div class="input-icon right">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrk_text" id="ux_txt_marginwrk_text" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo $padding[0];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrl_text" id="ux_txt_marginwrl_text" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo $padding[1];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrz_text" id="ux_txt_marginwrz_text" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo $padding[2];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrx_text" id="ux_txt_marginwrx_text" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo $padding[3];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrk_text[]" id="ux_txt_marginwrk_top_text" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo $padding[0];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrl_text[]" id="ux_txt_marginwrl_right_text" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo $padding[1];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrz_text[]" id="ux_txt_marginwrz_bottom_text" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo $padding[2];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginwrx_text[]" id="ux_txt_marginwrx_left_text" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo $padding[3];?>">
 														</div>
 													</div>
 												</div>
@@ -413,7 +413,6 @@ else
 												<label class="control-label">
 													<?php _e("Custom CSS",coming_soon_master) ?> :
 													<i class="icon-question tooltips" data-original-title="<?php _e("Enter Custom CSS",coming_soon_master)?>" data-placement="right"></i>
-													<span class="required" aria-required="true">*</span>
 												</label>
 												<textarea class="form-control" name="ux_txtarea_css_countdown" id="ux_txtarea_css_countdown" placeholder="<?php _e("Enter Custom CSS",coming_soon_master); ?>"></textarea>
 											</div>
