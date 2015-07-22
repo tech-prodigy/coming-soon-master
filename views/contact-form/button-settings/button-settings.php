@@ -177,7 +177,6 @@ else
 												<label class="control-label">
 													<?php _e("Custom CSS",coming_soon_master) ?> :
 													<i class="icon-question tooltips" data-original-title="<?php _e("Enter Custom CSS",coming_soon_master)?>" data-placement="right"></i>
-													<span class="required"></span>
 												</label>
 												<textarea class="form-control" name="ux_txtarea_css_button_cf" id="ux_txtarea_css_button_cf" placeholder="<?php _e("Enter Custom CSS",coming_soon_master); ?>" ></textarea>
 											</div>
