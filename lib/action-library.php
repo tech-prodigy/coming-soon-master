@@ -63,18 +63,20 @@ else
 						$update_logo_settings["logo"] = esc_attr($form_data["ux_ddl_font_logo"]);
 						$update_logo_settings["logo_type"] = esc_attr($form_data["ux_ddl_font_logo_type"]);
 						$update_logo_settings["logo_position"] = esc_attr($form_data["ux_ddl_logo_position"]);
-						$update_logo_settings["logo_text"] = esc_attr($form_data["ux_txt_logo_type"]);
-						$update_logo_settings["font_style_layout"] = esc_attr($form_data(implode(",",isset($meta_data_array["ux_ddl_font_style"]))));
+						$update_logo_settings["logo_text"] = esc_attr($form_data["ux_txt_Logo_type"]);
+						$update_logo_settings["font_style_layout"] = esc_attr(implode(",",$form_data["ux_ddl_font_style_logo"]));
 						$update_logo_settings["font_family_layout"] = esc_attr($form_data["ux_ddl_font_family"]);
 						$update_logo_settings["font_color_layout"] = esc_attr($form_data["ux_txt_font_color"]);
-						$update_logo_settings["margin_layout"] = esc_attr($form_data(implode(",",isset($meta_data_array["ux_txt_marginwry_text"]))));
-						$update_logo_settings["padding_layout"] = esc_attr($form_data(implode(",",isset($meta_data_array["ux_txt_paddingwrp_text"]))));
+						$update_logo_settings["margin_layout"] = esc_attr(implode(",",$form_data["ux_txt_logo_margin_text"]));
+						$update_logo_settings["padding_layout"] = esc_attr(implode(",",$form_data["ux_txt_logo_padding_text"]));
 						$update_logo_settings["logo_image"] = esc_attr($form_data["ux_txt_logo_text"]);
 						$update_logo_settings["logo_link"] = esc_attr($form_data["ux_ddl_logo_link"]);
 						$update_logo_settings["logo_link_text"] = esc_attr($form_data["ux_txt_logo_link"]);
 						$update_logo_settings["logo_size"] = esc_attr($form_data["ux_ddl_font_logo_size"]);
 						$update_logo_settings["max_height"] = esc_attr($form_data["ux_txt_width"]);
 						$update_logo_settings["max_width"] = esc_attr($form_data["ux_txt_height"]);
+						$update_logo_settings["custom_css_logo"] = esc_attr($form_data["ux_txtarea_css_logo"]);
+						
 
 						foreach($update_logo_settings as $keys => $value)
 						{
@@ -134,6 +136,53 @@ else
 							$where["meta_key"] = $keys;
 							$update_description_value["meta_value"] = $value;
 							$obj_dbHelper->updateCommand(coming_soon_meta(),$update_description_value,$where);
+						}
+					}
+					die();
+				break;
+				
+				case "footer_settings_module" :
+					if(wp_verify_nonce($_REQUEST["_wp_nonce"], "coming_soon_master_footer_settings"))
+					{
+						parse_str($_REQUEST["data"],$form_data);
+						$update_footer_settings = array();
+						$where = array();
+				
+						$update_footer_settings["footer_settings"] = esc_attr($form_data["ux_ddl_footer_settings"]);
+						$update_footer_settings["footer_text"] = esc_attr($form_data["ux_footer_content"]);
+						$update_footer_settings["font_style_footer"] = esc_attr(implode(",",$form_data["ux_ddl_font_style_ftr"]));
+						$update_footer_settings["font_family_footer"] = esc_attr($form_data["ux_ddl_font_family_footer"]);
+						$update_footer_settings["footer_position"] = esc_attr($form_data["ux_ddl_footer_position"]);
+						$update_footer_settings["margin_footer"] = esc_attr(implode(",",$form_data["ux_txt_footer_margin_text"]));
+						$update_footer_settings["padding_footer"] = esc_attr(implode(",",$form_data["ux_txt_footer_padding_text"]));
+				
+						foreach($update_footer_settings as $keys => $value)
+						{
+							$update_footer_settings = array();
+							$where["meta_key"] = $keys;
+							$update_footer_value["meta_value"] = $value;
+							$obj_dbHelper->updateCommand(coming_soon_meta(),$update_footer_value,$where);
+						}
+					}
+					die();
+				break;
+				
+				case "favicon_settings_module" :
+					if(wp_verify_nonce($_REQUEST["_wp_nonce"], "coming_soon_master_favicon_settings"))
+					{
+						parse_str($_REQUEST["data"],$form_data);
+						$update_favicon_settings = array();
+						$where = array();
+				
+						$update_favicon_settings["favicon_settings"] = esc_attr($form_data["ux_ddl_favicon_settings"]);
+						$update_favicon_settings["upload_favicon"] = esc_attr($form_data["ux_txt_upload"]);
+						
+						foreach($update_favicon_settings as $keys => $value)
+						{
+							$update_favicon_settings = array();
+							$where["meta_key"] = $keys;
+							$update_favicon_value["meta_value"] = $value;
+							$obj_dbHelper->updateCommand(coming_soon_meta(),$update_favicon_value,$where);
 						}
 					}
 					die();

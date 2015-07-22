@@ -33,6 +33,7 @@ else
 	}
 	else
 	{
+		$csm_favicon_settings = wp_create_nonce("coming_soon_master_favicon_settings");
 		?>
 		<div class="page-content-wrapper">
 			<div class="page-content">

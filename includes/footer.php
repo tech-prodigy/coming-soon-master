@@ -146,9 +146,14 @@ else
 					load_sidebar_content();
 					jQuery(document).ready(function()
 					{
-						jQuery("#ux_ddl_font_style").val("<?php echo $font_style[0];?>");
-						jQuery("#ux_ddl_font").val("<?php echo $font_style[1];?>");
-						jQuery("#ux_ddl_font_family").val("<?php echo $meta_data_array["font_family_layout"];?>");
+						jQuery("#ux_ddl_font_logo").val("<?php echo isset($meta_data_array["logo"]) ? $meta_data_array["logo"] : "show";?>");
+						jQuery("#ux_ddl_font_logo_type").val("<?php echo isset($meta_data_array["logo_type"]) ? $meta_data_array["logo_type"] : "text";?>");
+						jQuery("#ux_ddl_font_style").val("<?php echo isset($meta_data_array["font_style_layout"]) ? $font_style[0] : "40px"?>");
+						jQuery("#ux_ddl_font").val("<?php echo isset($meta_data_array["font_style_layout"]) ? $font_style[1] : "bold";?>");
+						jQuery("#ux_ddl_font_family").val("<?php echo isset($meta_data_array["font_family_layout"]) ? $meta_data_array["font_family_layout"] : "Roboto Condensed";?>");
+						jQuery("#ux_ddl_logo_position").val("<?php echo isset($meta_data_array["logo_position"]) ? $meta_data_array["logo_position"] : "top";?>");
+						jQuery("#ux_ddl_logo_link").val("<?php echo isset($meta_data_array["logo_link"]) ? $meta_data_array["logo_link"] : "show";?>");
+						jQuery("#ux_ddl_font_logo_size").val("<?php echo isset($meta_data_array["logo_size"]) ? $meta_data_array["logo_size"] : "custom";?>");
 
 						change_type();
 						change_logo();
@@ -371,7 +376,22 @@ else
 						},
 						submitHandler: function(form)
 						{
-
+							jQuery.post(ajaxurl,
+							{
+								data: jQuery("#ux_frm_favicon_settings").serialize(),
+								param: "favicon_settings_module",
+								action: "coming_soon_master",
+								_wp_nonce:"<?php echo $csm_favicon_settings;?>"
+							},
+							function()
+							{
+								overlay_loading("update_favicon_settings");
+								setTimeout(function()
+								{
+									remove_overlay();
+									window.location.href = "admin.php?page=csm_favicon_settings";
+								}, 3000);
+							});
 						}
 					});
 					<?php
@@ -387,7 +407,7 @@ else
 					{
 						jQuery("#ux_ddl_heading_settings").val("<?php echo isset($meta_data_array["heading_settings"]) ? $meta_data_array["heading_settings"] : "show";?>");
 						jQuery("#ux_ddl_font_style_heading").val("<?php echo isset($meta_data_array["font_style_heading"]) ? $font_style[0] : "96px"?>");
-						jQuery("#ux_ddl_font_style_heading").val("< ?php echo isset($meta_data_array["font_style_heading"]) ? $font_style[1] : "bold";?>");
+						jQuery("#ux_ddl_font_heading_settings").val("<?php echo isset($meta_data_array["font_style_heading"]) ? $font_style[1] : "bold";?>");
 						jQuery("#ux_ddl_font_family_heading").val("<?php echo isset($meta_data_array["font_family_heading"]) ? $meta_data_array["font_family_heading"] : "Roboto Condensed";?>");
 						jQuery("#ux_ddl_heading_position").val("<?php echo isset($meta_data_array["heading_position"]) ? $meta_data_array["heading_position"] : "top";?>");
 						
@@ -482,8 +502,8 @@ else
 					jQuery(document).ready(function()
 					{
 						jQuery("#ux_ddl_description_settings").val("<?php echo isset($meta_data_array["description_settings"]) ? $meta_data_array["description_settings"] : "show";?>");
-						jQuery("#ux_ddl_font_style_des").val("<?php echo isset($meta_data_array["font_style_description"]) ? $font_style[0] : "20px"?>");
-						jQuery("#ux_ddl_font_style_description").val("<?php echo isset($meta_data_array["font_style_description"]) ? $font_style[1] : "bold";?>");
+						jQuery("#ux_ddl_font_style_description").val("<?php echo isset($meta_data_array["font_style_description"]) ? $font_style[0] : "20px"?>");
+						jQuery("#ux_ddl_font_description_settings").val("<?php echo isset($meta_data_array["font_style_description"]) ? $font_style[1] : "bold";?>");
 						jQuery("#ux_ddl_font_family_description").val("<?php echo isset($meta_data_array["font_family_description"]) ? $meta_data_array["font_family_description"] : "Roboto Condensed";?>");
 						jQuery("#ux_ddl_description_position").val("<?php echo isset($meta_data_array["description_position"]) ? $meta_data_array["description_position"] : "top";?>");
 
@@ -578,9 +598,11 @@ else
 
 					jQuery(document).ready(function()
 					{
-						jQuery("#ux_ddl_font_style_footer").val("<?php echo $font_style[0];?>");
-						jQuery("#ux_ddl_font_footer_settings").val("<?php echo $font_style[1];?>");
-						jQuery("#ux_ddl_font_family_footer").val("<?php echo $meta_data_array["font_family_footer"];?>");
+						jQuery("#ux_ddl_footer_settings").val("<?php echo isset($meta_data_array["footer_settings"]) ? $meta_data_array["footer_settings"] : "show";?>");
+						jQuery("#ux_ddl_font_style_footer").val("<?php echo isset($meta_data_array["font_style_footer"]) ? $font_style[0] : "20px"?>");
+						jQuery("#ux_ddl_font_footer_settings").val("<?php echo isset($meta_data_array["font_style_footer"]) ? $font_style[1] : "bold";?>");
+						jQuery("#ux_ddl_font_family_footer").val("<?php echo isset($meta_data_array["font_family_footer"]) ? $meta_data_array["font_family_footer"] : "Roboto Condensed";?>");
+						jQuery("#ux_ddl_footer_position").val("<?php echo isset($meta_data_array["footer_position"]) ? $meta_data_array["footer_position"] : "top";?>");
 
 						change_footer_settings();
 						jQuery("#ux_clr_footer_settings").colpick
@@ -644,7 +666,22 @@ else
 						},
 						submitHandler: function(form)
 						{
-
+							jQuery.post(ajaxurl,
+							{
+								data: jQuery("#ux_frm_footer_settings").serialize(),
+								param: "footer_settings_module",
+								action: "coming_soon_master",
+								_wp_nonce:"<?php echo $csm_footer_settings;?>"
+							},
+							function()
+							{
+								overlay_loading("update_footer_settings");
+								setTimeout(function()
+								{
+									remove_overlay();
+									window.location.href = "admin.php?page=csm_footer_settings";
+								}, 3000);
+							});
 						}
 					});
 					<?php

@@ -327,7 +327,8 @@ else
 				(162, 21, 'editor_general_settings', '0'),
 				(163, 21, 'contributor_general_settings', '0'),
 				(164, 21, 'subscriber_general_settings', '0'),
-				(165, 21, 'show_coming_soon_master_top_bar_menu', 'show');";
+				(165, 21, 'show_coming_soon_master_top_bar_menu', 'show'),
+				(166, 2, 'custom_css_logo', 'Helo');";
 				dbDelta($variable);
 			}
 		}

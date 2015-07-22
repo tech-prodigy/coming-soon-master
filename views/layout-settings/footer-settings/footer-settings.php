@@ -38,6 +38,7 @@ else
 		$margin = explode(",",isset($meta_data_array["margin_footer"]) ? $meta_data_array["margin_footer"] : "");
 		$font_style= explode(",",isset($meta_data_array["font_style_footer"]) ? $meta_data_array["font_style_footer"] : "");
 
+		$csm_footer_settings = wp_create_nonce("coming_soon_master_footer_settings");
 		?>
 		<div class="page-content-wrapper">
 			<div class="page-content">
@@ -107,7 +108,7 @@ else
 															<span class="required" aria-required="true">*</span>
 														</label>
 														<div class="input-icon right">
-															<select class="form-control input-width-25 input-inline" name="ux_ddl_font_style_footer" id="ux_ddl_font_style_footer">
+															<select class="form-control input-width-25 input-inline" name="ux_ddl_font_style_ftr[]" id="ux_ddl_font_style_footer">
 																<?php 
 																for($flag = 1;$flag <= 100;$flag++)
 																{
@@ -126,12 +127,12 @@ else
 																}
 																?>
 															</select>
-															<select class="form-control input-width-25 input-inline" name="ux_ddl_font_footer_settings" id="ux_ddl_font_footer_settings">
+															<select class="form-control input-width-25 input-inline" name="ux_ddl_font_style_ftr[]" id="ux_ddl_font_footer_settings">
 																<option value="bold"><?php _e("Bold",coming_soon_master)?></option>
 																<option value="italic"><?php _e("Italic",coming_soon_master)?></option>
 																<option value="normal"><?php _e("Normal",coming_soon_master)?></option>
 															</select>
-															<input type="text" name="ux_clr_footer_settings" id="ux_clr_footer_settings" class="form-control input-normal input-inline" placeholder="<?php _e("Color",coming_soon_master)?>" value="<?php echo $font_style[2];?>">
+															<input type="text" name="ux_ddl_font_style_ftr[]" id="ux_clr_footer_settings" class="form-control input-normal input-inline" placeholder="<?php _e("Color",coming_soon_master)?>" value="<?php echo $font_style[2];?>">
 														</div>
 													</div>
 												</div>
@@ -177,10 +178,10 @@ else
 															<span class="required" aria-required="true">*</span>
 														</label>
 														<div class="input-icon right">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginqh_text" id="ux_txt_marginqh_text" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo $margin[0];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginqj_text" id="ux_txt_marginqj_text" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo $margin[1];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginqk_text" id="ux_txt_marginqk_text" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo $margin[2];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginql_text" id="ux_txt_marginql_text" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo $margin[3];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_footer_margin_text[]" id="ux_txt_footer_margin_top_text" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo $margin[0];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_footer_margin_text[]" id="ux_txt_footer_margin_right_text" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo $margin[1];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_footer_margin_text[]" id="ux_txt_footer_margin_bottom_text" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo $margin[2];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_footer_margin_text[]" id="ux_txt_footer_margin_left_text" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo $margin[3];?>">
 														</div>
 													</div>
 												</div>
@@ -192,10 +193,10 @@ else
 															<span class="required" aria-required="true">*</span>
 														</label>
 														<div class="input-icon right">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginqz_text" id="ux_txt_marginqz_text" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo $padding[0];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginqx_text" id="ux_txt_marginqx_text" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo $padding[1];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginqc_text" id="ux_txt_marginqc_text" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo $padding[2];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_marginqv_text" id="ux_txt_marginqv_text" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo $padding[3];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_footer_padding_text[]" id="ux_txt_footer_padding_top_text" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo $padding[0];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_footer_padding_text[]" id="ux_txt_footer_padding_right_text" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo $padding[1];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_footer_padding_text[]" id="ux_txt_footer_padding_bottom_text" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo $padding[2];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_footer_padding_text[]" id="ux_txt_footer_padding_left_text" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo $padding[3];?>">
 														</div>
 													</div>
 												</div>

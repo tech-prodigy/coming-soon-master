@@ -139,7 +139,7 @@ else
 															</label>
 															
 															<div class="input-icon right">
-																<select class="form-control custom-input-medium input-inline" name="ux_ddl_font_style" id="ux_ddl_font_style">
+																<select class="form-control custom-input-medium input-inline" name="ux_ddl_font_style_logo[]" id="ux_ddl_font_style">
 																	<?php 
 																	for($flag = 1;$flag <= 100;$flag++)
 																	{
@@ -158,7 +158,7 @@ else
 																	}
 																	?>
 																</select>
-																<select class="form-control custom-input-medium input-inline" name="ux_ddl_font_style" id="ux_ddl_font">
+																<select class="form-control custom-input-medium input-inline" name="ux_ddl_font_style_logo[]" id="ux_ddl_font">
 																	<option value="bold"><?php _e("Bold",coming_soon_master)?></option>
 																	<option value="italic"><?php _e("Italic",coming_soon_master)?></option>
 																	<option value="normal"><?php _e("Normal",coming_soon_master)?></option>
@@ -283,10 +283,10 @@ else
 															<span class="required" aria-required="true">*</span>
 														</label>
 														<div class="input-icon right">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_margin_text" id="ux_txt_logo_margin_top_text" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo $margin[0];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_margin_text" id="ux_txt_logo_margin_right_text" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo $margin[1];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_margin_text" id="ux_txt_logo_margin_bottom_text" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo $margin[2];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_margin_text" id="ux_txt_logo_margin_left_text" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo $margin[3];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_margin_text[]" id="ux_txt_logo_margin_top_text" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo $margin[0];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_margin_text[]" id="ux_txt_logo_margin_right_text" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo $margin[1];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_margin_text[]" id="ux_txt_logo_margin_bottom_text" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo $margin[2];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_margin_text[]" id="ux_txt_logo_margin_left_text" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo $margin[3];?>">
 														</div>
 													</div>
 												</div>
@@ -298,10 +298,10 @@ else
 															<span class="required" aria-required="true">*</span>
 														</label>
 														<div class="input-icon right">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_padding_text" id="ux_txt_logo_padding_top_text" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo $padding[0];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_padding_text" id="ux_txt_logo_padding_right_text" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo $padding[1];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_padding_text" id="ux_txt_logo_padding_bottom_text" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo $padding[2];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_padding_text" id="ux_txt_logo_padding_left_text" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo $padding[3];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_padding_text[]" id="ux_txt_logo_padding_top_text" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo $padding[0];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_padding_text[]" id="ux_txt_logo_padding_right_text" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo $padding[1];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_padding_text[]" id="ux_txt_logo_padding_bottom_text" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo $padding[2];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_logo_padding_text[]" id="ux_txt_logo_padding_left_text" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo $padding[3];?>">
 														</div>
 													</div>
 												</div>
@@ -312,7 +312,7 @@ else
 													<i class="icon-question tooltips" data-original-title="<?php _e("Enter Custom CSS",coming_soon_master)?>" data-placement="right"></i>
 													<span class="required" aria-required="true">*</span>
 												</label>
-												<textarea class="form-control" name="ux_txtarea_css_logo" id="ux_txtarea_css_logo" placeholder="<?php _e("Enter Custom CSS",coming_soon_master); ?>"></textarea>
+												<textarea class="form-control" name="ux_txtarea_css_logo" id="ux_txtarea_css_logo" placeholder="<?php _e("Enter Custom CSS",coming_soon_master); ?>" value="<?php echo isset($meta_data_array["custom_css_logo"]) ? $meta_data_array["custom_css_logo"] : "";?>"></textarea>
 											</div>
 										</div>
 										<div class="line-separator"></div>
