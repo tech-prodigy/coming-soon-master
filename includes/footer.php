@@ -133,6 +133,14 @@ else
 					}
 				}
 
+				if(typeof(check_value) != "function")
+				{
+					function check_value(id)
+					{
+						jQuery(id).val() == "" ? jQuery(id).val(0) : jQuery(id).val();
+					}
+				}
+
 		<?php
 		if(isset($_REQUEST["page"]))
 		{
@@ -159,7 +167,7 @@ else
 						jQuery("#ux_ddl_font_family").val("<?php echo isset($meta_data_array["font_family_layout"]) ? $meta_data_array["font_family_layout"] : "Roboto Condensed";?>");
 						jQuery("#ux_ddl_logo_position").val("<?php echo isset($meta_data_array["logo_position"]) ? $meta_data_array["logo_position"] : "top";?>");
 						jQuery("#ux_ddl_logo_link").val("<?php echo isset($meta_data_array["logo_link"]) ? $meta_data_array["logo_link"] : "show";?>");
-						jQuery("#ux_ddl_font_logo_size").val("<?php echo isset($meta_data_array["logo_size"]) ? $meta_data_array["logo_size"] : "custom";?>");
+						jQuery("#ux_ddl_logo_size").val("<?php echo isset($meta_data_array["logo_size"]) ? $meta_data_array["logo_size"] : "custom";?>");
 
 						change_type();
 						change_logo();
@@ -275,7 +283,7 @@ else
 							{
 								required: true
 							},
-							ux_txt_Logo_type:
+							ux_txt_logo_type:
 							{
 								required: true
 							},
@@ -316,7 +324,7 @@ else
 								setTimeout(function()
 								{
 									remove_overlay();
-									window.location.href = "admin.php?page=csm_coming_soon_master";
+									window.location.href = "admin.php?page=csm_logo_settings";
 								}, 3000);
 							});
 						}
