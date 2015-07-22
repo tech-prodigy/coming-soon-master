@@ -19,7 +19,7 @@ if(!defined("coming_soon_master")) define("coming_soon_master","coming-soon-mast
 
 /*
 Function Name: install_script_for_coming_soon_master
-Parameter: No
+Parameters: No
 Description: It is used for creating a table in database.
 Created On: 2015-06-24 11:30
 Created By: Sonali
@@ -282,12 +282,12 @@ if(!function_exists("helper_class_for_coming_soon_master"))
 			$csm_role = $wpdb->prefix . "capabilities";
 			$current_user->role = array_key($current_user->$csm_role);
 			$csm_role = $current_user->role[0];
-		}	
+		}
 		if(file_exists(COMING_SOON_MASTER_DIR_PATH."lib/helper.php"))
 		{
 			include_once COMING_SOON_MASTER_DIR_PATH."lib/helper.php";
 		}
-		
+
 	}
 }
 
