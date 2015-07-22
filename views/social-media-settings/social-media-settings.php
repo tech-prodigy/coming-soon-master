@@ -33,6 +33,7 @@ else
 	}
 	else
 	{
+		$csm_social_settings = wp_create_nonce("coming_soon_master_social_settings");
 		?>
 		<div class="page-content-wrapper">
 			<div class="page-content">
