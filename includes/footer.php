@@ -1630,7 +1630,13 @@ else
 						},
 						submitHandler: function(form)
 						{
-
+							jQuery.post(ajaxurl,
+							{
+								data: jQuery("#ux_frm_button_settings").serialize(),
+								param: "button_settings_module",
+								action: "coming_soon_master",
+								_wp_nonce:"<?php echo $csm_button_settings;?>"
+							},
 						}
 					});
 					load_sidebar_content();
