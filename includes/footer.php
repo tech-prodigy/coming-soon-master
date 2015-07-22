@@ -103,6 +103,11 @@ else
 									var success = "<?php _e("Success!",coming_soon_master)?>";
 								break;
 
+								case "button_settings":
+									var message = "<?php _e("Your data has been sent successfully.",coming_soon_master)?>";
+									var success = "<?php _e("Success!",coming_soon_master)?>";
+								break;
+
 								case "feature_request":
 									var message = "<?php _e("Your request email has been sent successfully.",coming_soon_master)?>";
 									var success = "<?php _e("Success!",coming_soon_master)?>";
@@ -984,11 +989,101 @@ else
 						{
 							ux_txt_email:
 							{
+								required: true,
 								email: true
 							},
 							ux_txt_website:
 							{
-								required: true
+								required: true,
+								url: true
+							},
+							ux_txt_google:
+							{
+								url: true
+							},
+							ux_txt_utube:
+							{
+								url: true
+							},
+							ux_txt_insta:
+							{
+								url: true
+							},
+							ux_txt_pinterest:
+							{
+								url: true
+							},
+							ux_txt_flickr:
+							{
+								url: true
+							},
+							ux_txt_googleplus:
+							{
+								url: true
+							},
+							ux_txt_vimeo:
+							{
+								url: true
+							},
+							ux_txt_linkedin:
+							{
+								url: true
+							},
+							ux_txt_skype:
+							{
+								url: true
+							},
+							ux_txt_tumblr:
+							{
+								url: true
+							},
+							ux_txt_dribble:
+							{
+								url: true
+							},
+							ux_txt_github:
+							{
+								url: true
+							},
+							ux_txt_rss:
+							{
+								url: true
+							},
+							ux_txt_fb:
+							{
+								url: true
+							},
+							ux_txt_yahoo:
+							{
+								url: true,
+							},
+							ux_txt_blogger:
+							{
+								url: true
+							},
+							ux_txt_wordpress:
+							{
+								url: true,
+							},
+							ux_txt_myspace:
+							{
+								url: true
+							},
+							ux_txt_foursquare:
+							{
+								url: true
+							},
+							ux_txt_livejournal:
+							{
+								url: true
+							},
+							ux_txt_twitter:
+							{
+								url: true
+							},
+							ux_txt_deviantart:
+							{
+								url: true
 							}
 						},
 
@@ -1631,6 +1726,14 @@ else
 							{
 								required: true
 							}
+							ux_txt_marginmnb_text:
+							{
+								digits: true
+							}
+							ux_txt_marginmna_text:
+							{
+								digits: true
+							}
 						},
 
 						errorPlacement: function (error, element)
@@ -1651,7 +1754,22 @@ else
 						},
 						submitHandler: function(form)
 						{
-
+							jQuery.post(ajaxurl,
+							{
+								data: jQuery("#ux_frm_button_settings").serialize(),
+								param: "social_settings_module",
+								action: "coming_soon_master",
+								_wp_nonce:"<?php echo $csm_button_settings;?>"
+							},
+							function()
+							{
+								overlay_loading("button_settings");
+								setTimeout(function()
+								{
+									remove_overlay();
+									window.location.href = "admin.php?page=csm_social_settings";
+								}, 3000);
+							});
 						}
 					});
 					load_sidebar_content();

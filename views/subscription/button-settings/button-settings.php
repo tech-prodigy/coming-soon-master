@@ -10,19 +10,19 @@ else
 		case "administrator":
 			$user_role_permission = "manage_options";
 		break;
-		
+
 		case "author":
 			$user_role_permission = "publish_posts";
 		break;
-		
+
 		case "editor":
 			$user_role_permission = "public_pages";
 		break;
-		
+
 		case "contributor":
 			$user_role_permission = "edit_posts";
 		break;
-		
+
 		case "subscriber":
 			$user_role_permission = "read";
 		break;
@@ -33,6 +33,7 @@ else
 	}
 	else
 	{
+			$csm_button_settings = wp_create_nonce("coming_soon_master_button_settings");
 
 		$padding = explode(",",isset($meta_data_array["padding_button_subscription"]) ? $meta_data_array["padding_button_subscription"] : "");
 		$margin = explode(",",isset($meta_data_array["margin_button_subscription"]) ? $meta_data_array["margin_button_subscription"] : "");
@@ -62,7 +63,7 @@ else
 							</span>
 						</li>
 					</ul>
-				</div>	
+				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="portlet box purple">
@@ -93,20 +94,20 @@ else
 													</label>
 													<div class="input-icon right">
 														<select class="form-control input-width-25 input-inline " name="ux_ddl_font_style_button_subscription" id="ux_ddl_font_style_button_subscription">
-															<?php 
+															<?php
 															for($flag = 1;$flag <= 100;$flag++)
 															{
 																if($flag < 10)
 																{
 																	?>
 																	<option value="<?php echo $flag;?>px">0<?php echo $flag;?> Px</option>
-																	<?php 
+																	<?php
 																}
 																else
 																{
 																	?>
 																	<option value="<?php echo $flag;?>px"><?php echo $flag;?> Px</option>
-																	<?php 
+																	<?php
 																}
 															}
 															?>
@@ -122,13 +123,13 @@ else
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="control-label">	
+													<label class="control-label">
 														<?php _e("Font Family",coming_soon_master)?> :
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Select Font Family",coming_soon_master)?>" data-placement="right"></i>
 														<span class="required" aria-required="true">*</span>
 													</label>
 													<select class="form-control" name="ux_ddl_font_family_button_subscription" id="ux_ddl_font_family_button_subscription">
-														<?php 
+														<?php
 														foreach($web_font_list as $key => $val)
 														{
 															?>
@@ -175,7 +176,7 @@ else
 											</select>
 										</div>
 										<div class="form-group">
-											<label class="control-label">	
+											<label class="control-label">
 												<?php _e("Button Position",coming_soon_master)?> :
 												<i class="icon-question tooltips" data-original-title="<?php _e("Please Select Button Position",coming_soon_master)?>" data-placement="right"></i>
 												<span class="required" aria-required="true">*</span>
@@ -223,14 +224,13 @@ else
 											<label class="control-label">
 												<?php _e("Custom CSS",coming_soon_master) ?> :
 												<i class="icon-question tooltips" data-original-title="<?php _e("Enter Custom CSS",coming_soon_master)?>" data-placement="right"></i>
-												<span class="required" aria-required="true">*</span>
 											</label>
 											<textarea class="form-control" name="ux_txtarea_css_button" id="ux_txtarea_css_button" placeholder="<?php _e("Enter Custom CSS",coming_soon_master); ?>"></textarea>
 										</div>
 										<div class="line-separator"></div>
 										<div class="form-actions">
 											<div class="pull-right">
-												<input type="submit" class="btn purple" id="btn_save_button_settings" name="btn_save_button_settings" value="<?php _e("Save Settings",coming_soon_master);?>">
+												<input type="submit" class="btn purple" id="ux_btn_save_button_settings" name="ux_btn_save_button_settings" value="<?php _e("Save Settings",coming_soon_master);?>">
 											</div>
 										</div>
 									</div>
