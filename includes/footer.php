@@ -99,12 +99,12 @@ else
 							switch(control_id)
 							{
 								case "social_media_settings":
-									var message = "<?php _e("Your data has been sent successfully.",coming_soon_master)?>";
+									var message = "<?php _e("Social Media Settings has been saved successfully.",coming_soon_master)?>";
 									var success = "<?php _e("Success!",coming_soon_master)?>";
 								break;
 
 								case "button_settings":
-									var message = "<?php _e("Your data has been sent successfully.",coming_soon_master)?>";
+									var message = "<?php _e("Your Button Settings has been saved successfully.",coming_soon_master)?>";
 									var success = "<?php _e("Success!",coming_soon_master)?>";
 								break;
 
@@ -1055,7 +1055,7 @@ else
 							},
 							ux_txt_yahoo:
 							{
-								url: true,
+								url: true
 							},
 							ux_txt_blogger:
 							{
@@ -1063,7 +1063,7 @@ else
 							},
 							ux_txt_wordpress:
 							{
-								url: true,
+								url: true
 							},
 							ux_txt_myspace:
 							{
@@ -1757,7 +1757,7 @@ else
 							jQuery.post(ajaxurl,
 							{
 								data: jQuery("#ux_frm_button_settings").serialize(),
-								param: "social_settings_module",
+								param: "button_settings_module",
 								action: "coming_soon_master",
 								_wp_nonce:"<?php echo $csm_button_settings;?>"
 							},
