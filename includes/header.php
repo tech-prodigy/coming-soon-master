@@ -30,6 +30,7 @@ else
 	if(!current_user_can($user_role_permission))
 	{
 		return;
+		alert(test);
 	}
 	else
 	{
