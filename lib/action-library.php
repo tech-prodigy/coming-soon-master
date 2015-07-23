@@ -63,8 +63,8 @@ else
 
 						$update_google_map["google_map_settings"] = esc_attr($form_data["ux_ddl_google_map"]);
 						$update_google_map["located_address_by"] = esc_attr($form_data["ux_ddl_location"]);
-						$update_google_map["formatted_address"] = esc_attr($form_data["ux_div_format"]);
-						$update_google_map["area_zip_code"] = esc_attr($form_data["ux_div_area_code"]);
+						$update_google_map["formatted_address"] = esc_attr($form_data["ux_txt_formatted_address"]);
+						$update_google_map["area_zip_code"] = esc_attr($form_data["ux_txt_area_code"]);
 						$update_google_map["latitude"] = esc_attr($form_data["ux_txt_latitude"]);
 						$update_google_map["longitude"] = esc_attr($form_data["ux_txt_longitude"]);
 

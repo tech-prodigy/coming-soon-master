@@ -99,7 +99,7 @@ else
 							switch(control_id)
 							{
 								case "google_map_settings":
-									var message = "<?php _e("Your request email has been sent successfully.",coming_soon_master)?>";
+									var message = "<?php _e("Google Map Settings has been saved successfully.",coming_soon_master)?>";
 									var success = "<?php _e("Success!",coming_soon_master)?>";
 								break;
 
@@ -1727,24 +1727,19 @@ else
 					{
 						jQuery("#ux_li_contact_form").addClass("active");
 						jQuery("#ux_li_google_map_settings").addClass("active");
-						change_display();
-						csm_initialize();
-						digits_dots_only();
+						jQuery("#ux_ddl_google_map").val("<?php echo isset($meta_data_array["google_map_settings"]) ? $meta_data_array["google_map_settings"] : "";?>");
+						jQuery("#ux_ddl_location").val("<?php echo isset($meta_data_array["located_address_by"]) ? $meta_data_array["located_address_by"] : "";?>");
+
 						change_google_map();
 						change_location();
 						csm_initialize();
-						jQuery("#ux_ddl_google_map").val("<?php echo isset($meta_data_array["google_map_settings"]) ? $meta_data_array["google_map_settings"] : "";?>");
-						jQuery("#ux_ddl_location").val("<?php echo isset($meta_data_array["located_address_by"]) ? $meta_data_array["located_address_by"] : "";?>");
 					});
+
 					var latitude = 35.38453628611739;
 					var longitude = -97.03259696914063;
 					var input = "";
 
 					load_sidebar_content();
-					jQuery(document).ready(function()
-					{
-
-					});
 
 					if(typeof(csm_initialize) != "function")
 					{
@@ -1875,7 +1870,7 @@ else
 								action: "coming_soon_master",
 								_wp_nonce:"<?php echo $csm_google_map_settings;?>"
 							},
-							function()
+							function(data)
 							{
 								overlay_loading("google_map_settings");
 								setTimeout(function()

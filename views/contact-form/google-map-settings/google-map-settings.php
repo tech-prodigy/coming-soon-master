@@ -116,30 +116,30 @@ else
 													<input type="text" class="form-control" name="ux_txt_area_code" id="ux_txt_area_code" placeholder="<?php _e("Please Enter Your Area Code/ZIP Code Here",coming_soon_master)?>" value="<?php echo isset($meta_data_array["area_zip_code"]) ? $meta_data_array["area_zip_code"] : "singapore 247964";?>">
 												</div>
 											</div>
-											<div id="ux_div_latitude">
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<label class="control-label">
-																<?php _e("Latitude",coming_soon_master)?> :
-																<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Latitude Here",coming_soon_master)?>" data-placement="right"></i>
-																<span class="required" aria-required="true">*</span>
-															</label>
-															<input type="text" class="form-control" name="ux_txt_latitude" id="ux_txt_latitude" placeholder="<?php _e("Please Enter Your Latitude Here",coming_soon_master)?>" onblur="change_location();" value="<?php echo isset($meta_data_array["latitude"]) ? $meta_data_array["latitude"] : "1.330256";?>">
+												<div id="ux_div_latitude">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label class="control-label">
+																	<?php _e("Latitude",coming_soon_master)?> :
+																	<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Latitude Here",coming_soon_master)?>" data-placement="right"></i>
+																	<span class="required" aria-required="true">*</span>
+																</label>
+																<input type="text" class="form-control" name="ux_txt_latitude" id="ux_txt_latitude" placeholder="<?php _e("Please Enter Your Latitude Here",coming_soon_master)?>" onblur="change_location();" value="<?php echo isset($meta_data_array["latitude"]) ? $meta_data_array["latitude"] : "1.330256";?>">
+															</div>
 														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group">
-															<label class="control-label">
-																<?php _e("Longitude",coming_soon_master)?> :
-																<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Longitude Here",coming_soon_master)?>" data-placement="right"></i>
-																<span class="required" aria-required="true">*</span>
-															</label>
-															<input type="text" class="form-control" name="ux_txt_longitude" id="ux_txt_longitude" placeholder="<?php _e("Please Enter Your Longitude Here",coming_soon_master)?>" onblur="change_location();" value="<?php echo isset($meta_data_array["longitude"]) ? $meta_data_array["longitude"] : "103.906374";?>">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label class="control-label">
+																	<?php _e("Longitude",coming_soon_master)?> :
+																	<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Longitude Here",coming_soon_master)?>" data-placement="right"></i>
+																	<span class="required" aria-required="true">*</span>
+																</label>
+																<input type="text" class="form-control" name="ux_txt_longitude" id="ux_txt_longitude" placeholder="<?php _e("Please Enter Your Longitude Here",coming_soon_master)?>" onblur="change_location();" value="<?php echo isset($meta_data_array["longitude"]) ? $meta_data_array["longitude"] : "103.906374";?>">
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
 											<div id="map_canvas" class="custom-map"></div>
 										</div>
 										<div class="line-separator"></div>
