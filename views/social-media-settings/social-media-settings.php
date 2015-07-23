@@ -10,19 +10,19 @@ else
 		case "administrator":
 			$user_role_permission = "manage_options";
 		break;
-		
+
 		case "author":
 			$user_role_permission = "publish_posts";
 		break;
-		
+
 		case "editor":
 			$user_role_permission = "public_pages";
 		break;
-		
+
 		case "contributor":
 			$user_role_permission = "edit_posts";
 		break;
-		
+
 		case "subscriber":
 			$user_role_permission = "read";
 		break;
@@ -33,6 +33,7 @@ else
 	}
 	else
 	{
+		$csm_social_settings = wp_create_nonce("coming_soon_master_social_settings");
 		?>
 		<div class="page-content-wrapper">
 			<div class="page-content">
@@ -51,7 +52,7 @@ else
 							</span>
 						</li>
 					</ul>
-				</div>	
+				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="portlet box purple">
@@ -67,7 +68,7 @@ else
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="control-label">	
+													<label class="control-label">
 														<?php _e("Email",coming_soon_master)?> :
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Email Url",coming_soon_master)?>" data-placement="right"></i>
 														<span class="required" aria-required="true">*</span>
@@ -77,7 +78,7 @@ else
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="control-label">	
+													<label class="control-label">
 														<?php _e("Website URL",coming_soon_master)?> :
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Website Url",coming_soon_master)?>" data-placement="right"></i>
 														<span class="required" aria-required="true">*</span>
@@ -98,7 +99,7 @@ else
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="control-label">	
+													<label class="control-label">
 														<?php _e("YouTube",coming_soon_master)?> :
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your YouTube Url",coming_soon_master)?>" data-placement="right"></i>
 													</label>
@@ -118,7 +119,7 @@ else
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="control-label">	
+													<label class="control-label">
 														<?php _e("Pinterest",coming_soon_master)?> :
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Pinterest Url",coming_soon_master)?>" data-placement="right"></i>
 													</label>
@@ -138,7 +139,7 @@ else
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="control-label">	
+													<label class="control-label">
 														<?php _e("Google Plus",coming_soon_master)?> :
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Google Plus Url",coming_soon_master)?>" data-placement="right"></i>
 													</label>
@@ -158,7 +159,7 @@ else
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="control-label">	
+													<label class="control-label">
 														<?php _e("LinkedIn",coming_soon_master)?> :
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your LinkedIn Url",coming_soon_master)?>" data-placement="right"></i>
 													</label>
@@ -178,7 +179,7 @@ else
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="control-label">	
+													<label class="control-label">
 														<?php _e("Tumblr",coming_soon_master)?> :
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Tumblr Url",coming_soon_master)?>" data-placement="right"></i>
 													</label>
@@ -198,7 +199,7 @@ else
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="control-label">	
+													<label class="control-label">
 														<?php _e("GitHub",coming_soon_master)?> :
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your GitHub Url",coming_soon_master)?>" data-placement="right"></i>
 													</label>
@@ -238,7 +239,7 @@ else
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="control-label">	
+													<label class="control-label">
 														<?php _e("Blogger",coming_soon_master)?> :
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Blogger Url",coming_soon_master)?>" data-placement="right"></i>
 													</label>
@@ -258,7 +259,7 @@ else
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="control-label">	
+													<label class="control-label">
 														<?php _e("Myspace",coming_soon_master)?> :
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Myspace Url",coming_soon_master)?>" data-placement="right"></i>
 													</label>
@@ -278,7 +279,7 @@ else
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="control-label">	
+													<label class="control-label">
 														<?php _e("LiveJournal",coming_soon_master)?> :
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your LiveJournal Url",coming_soon_master)?>" data-placement="right"></i>
 													</label>
@@ -289,7 +290,7 @@ else
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="control-label">	
+													<label class="control-label">
 														<?php _e("Twitter",coming_soon_master)?> :
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your Twitter Url",coming_soon_master)?>" data-placement="right"></i>
 													</label>
@@ -298,7 +299,7 @@ else
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label class="control-label">	
+													<label class="control-label">
 														<?php _e("DeviantArt",coming_soon_master)?> :
 														<i class="icon-question tooltips" data-original-title="<?php _e("Please Enter Your DeviantArt Url",coming_soon_master)?>" data-placement="right"></i>
 													</label>
@@ -309,7 +310,7 @@ else
 										<div class="line-separator"></div>
 										<div class="form-actions">
 											<div class="pull-right">
-												<input type="submit" class="btn purple" id="btn_save_social_settings" name="btn_save_social_settings" value="<?php _e("Save Settings",coming_soon_master);?>">
+												<input type="submit" class="btn purple" id="btn_save_social_settings" name="btn_save_social_settings" value= "<?php _e("Save Settings",coming_soon_master); ?> ">
 											</div>
 										</div>
 									</div>
