@@ -95,7 +95,7 @@ else
 													<span class="required" aria-required="true">*</span>
 												</label>
 												<?php
-												$distribution = stripslashes(urldecode(isset($meta_data_array["description_text_subscription"]) ? $meta_data_array["description_text_subscription"] : ""));
+												$distribution = isset($meta_data_array["description_text_subscription"]) ? $meta_data_array["description_text_subscription"] : "));
 												wp_editor( $distribution, $id ="ux_description_content_subscription", array("media_buttons" => false, "textarea_rows" => 8, "tabindex" => 4 ) );
 												?>
 											</div>
