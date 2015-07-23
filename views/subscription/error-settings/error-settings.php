@@ -132,7 +132,7 @@ else
 																<option value="italic"><?php _e("Italic",coming_soon_master)?></option>
 																<option value="normal"><?php _e("Normal",coming_soon_master)?></option>
 															</select>
-															<input type="text" name="ux_ddl_font_error_subscription[]" id="ux_clr_error_settings_subscription" class="form-control input-normal input-inline" placeholder="<?php _e("Color", coming_soon_master)?>" value="<?php echo $font_style[2];?>">
+															<input type="text" name="ux_ddl_font_error_subscription[]" id="ux_clr_error_settings_subscription" class="form-control input-normal input-inline" placeholder="<?php _e("Color", coming_soon_master)?>" value="<?php echo isset($font_style[2]) ? $font_style[2] : "";?>" onblur="check_color('#ux_clr_error_settings_subscription');">
 														</div>
 													</div>
 												</div>
@@ -178,10 +178,10 @@ else
 															<span class="required" aria-required="true">*</span>
 														</label>
 														<div class="input-icon right">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_sub_error_margin_text[]" id="ux_txt_sub_error_margin_top" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo $margin[0];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_sub_error_margin_text[]" id="ux_txt_sub_error_margin_right" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo $margin[1];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_sub_error_margin_text[]" id="ux_txt_sub_error_margin_bottom" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo $margin[2];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_sub_error_margin_text[]" id="ux_txt_sub_error_margin_left" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo $margin[3];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_subscription_error_margin_text[]" id="ux_txt_subscription_error_margin_top" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo isset($margin[0]) ? $margin[0] : "";?>" onblur="check_value('#ux_txt_subscription_error_margin_top');">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_subscription_error_margin_text[]" id="ux_txt_subscription_error_margin_right" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo isset($margin[1]) ? $margin[1] : "";?>" onblur="check_value('#ux_txt_subscription_error_margin_right');">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_subscription_error_margin_text[]" id="ux_txt_subscription_error_margin_bottom" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo isset($margin[2]) ? $margin[2] : "";?>" onblur="check_value('#ux_txt_subscription_error_margin_bottom');">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_subscription_error_margin_text[]" id="ux_txt_subscription_error_margin_left" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo isset($margin[3]) ? $margin[3] : "";?>" onblur="check_value('#ux_txt_subscription_error_margin_left');">
 														</div>
 													</div>
 												</div>
@@ -193,10 +193,10 @@ else
 															<span class="required" aria-required="true">*</span>
 														</label>
 														<div class="input-icon right">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_sub_error_padding_text[]" id="ux_txt_sub_error_padding_top" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo $padding[0];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_sub_error_padding_text[]" id="ux_txt_sub_error_padding_right" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo $padding[1];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_sub_error_padding_text[]" id="ux_txt_sub_error_padding_bottom" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo $padding[2];?>">
-															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_sub_error_padding_text[]" id="ux_txt_sub_error_padding_left" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo $padding[3];?>">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_subscription_error_padding_text[]" id="ux_txt_subscription_error_padding_top" placeholder="<?php _e("Top",coming_soon_master)?>" value="<?php echo isset($padding[0]) ? $padding[0] : "";?>" onblur="check_value('#ux_txt_subscription_error_padding_top');">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_subscription_error_padding_text[]" id="ux_txt_subscription_error_padding_right" placeholder="<?php _e("Right",coming_soon_master)?>" value="<?php echo isset($padding[1]) ? $padding[1] : "";?>" onblur="check_value('#ux_txt_subscription_error_padding_right');">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_subscription_error_padding_text[]" id="ux_txt_subscription_error_padding_bottom" placeholder="<?php _e("Bottom",coming_soon_master)?>" value="<?php echo isset($padding[2]) ? $padding[2] : "";?>" onblur="check_value('#ux_txt_subscription_error_padding_bottom');">
+															<input type="text" class="form-control custom-input-xsmall input-inline" name="ux_txt_subscription_error_padding_text[]" id="ux_txt_subscription_error_padding_left" placeholder="<?php _e("Left",coming_soon_master)?>" value="<?php echo isset($padding[3]) ? $padding[3] : "";?>" onblur="check_value('#ux_txt_subscription_error_padding_left');">
 														</div>
 													</div>
 												</div>
@@ -206,13 +206,13 @@ else
 													<?php _e("Custom CSS",coming_soon_master) ?> :
 													<i class="icon-question tooltips" data-original-title="<?php _e("Enter Custom CSS",coming_soon_master)?>" data-placement="right"></i>
 												</label>
-												<textarea class="form-control" name="ux_txtarea_css_error" id="ux_txtarea_css_error" placeholder="<?php _e("Enter Custom CSS",coming_soon_master); ?>"><?php echo isset($meta_data_array["custom_css_error"]) ? $meta_data_array["custom_css_error"] : "";?></textarea>
+												<textarea class="form-control" name="ux_txtarea_css_error" id="ux_txtarea_css_error" placeholder="<?php _e("Enter Custom CSS",coming_soon_master); ?>"><?php echo isset($meta_data_array["custom_css_error_settings_subscription"]) ? $meta_data_array["custom_css_error_settings_subscription"] : "";?></textarea>
 											</div>
 										</div>
 										<div class="line-separator"></div>
 										<div class="form-actions">
 											<div class="pull-right">
-												<input type="submit" class="btn purple" id="btn_save_error" name="btn_save_error" value="<?php _e("Save Settings",coming_soon_master);?>">
+												<input type="submit" class="btn purple" id="ux_btn_save_error" name="ux_btn_save_error" value="<?php _e("Save Settings",coming_soon_master);?>">
 											</div>
 										</div>
 									</div>
