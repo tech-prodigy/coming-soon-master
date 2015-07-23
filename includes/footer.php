@@ -98,6 +98,16 @@ else
 						{
 							switch(control_id)
 							{
+								case "update_subscription_description_settings":
+									var message = "<?php _e("Your Description Settings For Subscription Has Been Sent Successfully.",coming_soon_master)?>";
+									var success = "<?php _e("Success!",coming_soon_master)?>";
+								break;
+
+								case "update_subscription_error_settings":
+									var message = "<?php _e("Your Error Settings For Subscription Has Been Sent Successfully.",coming_soon_master)?>";
+									var success = "<?php _e("Success!",coming_soon_master)?>";
+								break;
+
 								case "feature_request":
 									var message = "<?php _e("Your request email has been sent successfully.",coming_soon_master)?>";
 									var success = "<?php _e("Success!",coming_soon_master)?>";
@@ -1099,7 +1109,7 @@ else
 						jQuery("#ux_ddl_description_settings_subscription").val("<?php echo isset($meta_data_array["description_settings_subscription"]) ? $meta_data_array["description_settings_subscription"] : "show";?>");
 						jQuery("#ux_ddl_font_style_description_subscription").val("<?php echo isset($meta_data_array["font_style_description_subscription"]) ? $font_style[0] : "20px"?>");
 						jQuery("#ux_ddl_font_description_settings_subscription").val("<?php echo isset($meta_data_array["font_style_description_subscription"]) ? $font_style[1] : "bold";?>");
-						jQuery("#ux_ddl_font_family_description_subscription").val("<?php echo isset($meta_data_array["font_family_description_subscription"]) ? $meta_data_array["font_family_description_subscription"] : "Roboto Condensed";?>");
+						jQuery("#ux_ddl_font_family_description_subscription").val("<?php echo isset($meta_data_array["font_family_description_subscription"]) ? stripslashes(htmlspecialchars_decode(urldecode($meta_data_array["font_family_description_subscription"]))) : "Roboto Condensed";?>");
 						jQuery("#ux_ddl_description_positions").val("<?php echo isset($meta_data_array["description_position_subscription"]) ? $meta_data_array["description_position_subscription"] : "top";?>");
 
 						change_description_settings_subscription();
@@ -1399,7 +1409,8 @@ else
 						jQuery("#ux_ddl_error_settings_subscription").val("<?php echo isset($meta_data_array["error_settings_subscription"]) ? $meta_data_array["error_settings_subscription"] : "show";?>");
 						jQuery("#ux_ddl_font_style_error_subscription").val("<?php echo isset($meta_data_array["font_style_error_subscription"]) ? $font_style[0] : "20px"?>");
 						jQuery("#ux_ddl_font_error_settings_subscription").val("<?php echo isset($meta_data_array["font_style_error_subscription"]) ? $font_style[1] : "bold";?>");
-						jQuery("#ux_ddl_font_family_error_subscription").val("<?php echo isset($meta_data_array["font_family_subscription"]) ? $meta_data_array["font_family_subscription"] : "Roboto Condensed";?>");
+						jQuery("#
+						").val("<?php echo isset($meta_data_array["font_family_subscription"]) ? $meta_data_array["font_family_subscription"] : "Roboto Condensed";?>");
 						jQuery("#ux_ddl_error_positions").val("<?php echo isset($meta_data_array["error_position_subscription"]) ? $meta_data_array["error_position_subscription"] : "top";?>");
 
 						change_error_settings_subscription();
@@ -1786,7 +1797,7 @@ else
 					?>
 					jQuery("#ux_li_contact_form").addClass("active");
 					jQuery("#ux_li_google_map_settings").addClass("active");
-				
+
 
 					jQuery(document).ready(function()
 					{

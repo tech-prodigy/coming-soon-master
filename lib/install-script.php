@@ -328,8 +328,21 @@ else
 				(163, 21, 'contributor_general_settings', '0'),
 				(164, 21, 'subscriber_general_settings', '0'),
 				(165, 21, 'show_coming_soon_master_top_bar_menu', 'show'),
-				(166, 2, 'custom_css_logo', 'Helo'),
-				(167, 12, 'custom_css_sub_des', '');";
+				(166, 2, 'custom_css_logo', ''),
+				(167, 3, 'custom_css_heading_layout', ''),
+				(168, 4, 'custom_css_des_layout', ''),
+				(169, 5, 'custom_css_footer_layout', ''),
+				(170, 6, 'custom_css_favicon_layout', ''),
+				(171, 7, 'custom_css_bg', ''),
+				(172, 8, 'custom_css_countdown', ''),
+				(173, 11, 'custom_css_heading_sub', ''),
+				(174, 12, 'custom_css_des_sub', ''),
+				(175, 13, 'custom_css_button_sub', ''),
+				(176, 14, 'custom_css_success_sub', ''),
+				(177, 15, 'custom_css_error_sub', ''),
+				(178, 17, 'custom_css_label_cf', ''),
+				(179, 18, 'custom_css_button_cf', ''),
+				(180, 19, 'custom_css_success_cf', '');";
 				dbDelta($variable);
 			}
 		}
