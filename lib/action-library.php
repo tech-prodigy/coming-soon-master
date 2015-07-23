@@ -200,9 +200,9 @@ else
 						$update_sub_des_settings["font_style_description_subscription"] = esc_attr(implode(",",$form_data["ux_ddl_font_description_subscription"]));
 						$update_sub_des_settings["font_family_description_subscription"] = esc_attr($form_data["ux_ddl_font_family_description_subscription"]);
 						$update_sub_des_settings["description_position_subscription"] = esc_attr($form_data["ux_ddl_description_positions"]);
-						$update_sub_des_settings["margin_description_subscription"] = esc_attr(implode(",",$form_data["ux_txt_sub_des_margin_text"]));
-						$update_sub_des_settings["padding_description_subscription"] = esc_attr(implode(",",$form_data["ux_txt_sub_des_padding_text"]));
-						$update_sub_des_settings["custom_css_sub_des"] = esc_attr($form_data["ux_txtarea_css_des_sub"]);
+						$update_sub_des_settings["margin_description_subscription"] = esc_attr(implode(",",$form_data["ux_txt_subscription_description_margin_text"]));
+						$update_sub_des_settings["padding_description_subscription"] = esc_attr(implode(",",$form_data["ux_txt_subscription_description_padding_text"]));
+						$update_sub_des_settings["custom_css_description_settings_subscription"] = esc_attr($form_data["ux_txtarea_css_description_subscription"]);
 
 						foreach($update_sub_des_settings as $keys => $value)
 						{
@@ -225,11 +225,11 @@ else
 						$update_sub_error_settings["error_settings_subscription"] = esc_attr($form_data["ux_ddl_error_settings_subscription"]);
 						$update_sub_error_settings["error_text_subscription"] = esc_attr($form_data["ux_error_content_subscription"]);
 						$update_sub_error_settings["font_style_error_subscription"] = esc_attr(implode(",",$form_data["ux_ddl_font_error_subscription"]));
-						$update_sub_error_settings["font_family_subscription"] = esc_attr($form_data["ux_ddl_font_family_error_subscription"]);
+						$update_sub_error_settings["font_family_error_subscription"] = esc_attr($form_data["ux_ddl_font_family_error_subscription"]);
 						$update_sub_error_settings["error_position_subscription"] = esc_attr($form_data["ux_ddl_error_positions"]);
-						$update_sub_error_settings["margin_error_subscription"] = esc_attr(implode(",",$form_data["ux_txt_sub_error_margin_text"]));
-						$update_sub_error_settings["padding_error_subscription"] = esc_attr(implode(",",$form_data["ux_txt_sub_error_padding_text"]));
-						$update_sub_error_settings["custom_css_error"] = esc_attr($form_data["ux_txtarea_css_error"]);
+						$update_sub_error_settings["margin_error_subscription"] = esc_attr(implode(",",$form_data["ux_txt_subscription_error_margin_text"]));
+						$update_sub_error_settings["padding_error_subscription"] = esc_attr(implode(",",$form_data["ux_txt_subscription_error_padding_text"]));
+						$update_sub_error_settings["custom_css_error_settings_subscription"] = esc_attr($form_data["ux_txtarea_css_error"]);
 
 						foreach($update_sub_error_settings as $keys => $value)
 						{

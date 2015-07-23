@@ -99,12 +99,12 @@ else
 							switch(control_id)
 							{
 								case "update_subscription_description_settings":
-									var message = "<?php _e("Your Description Settings For Subscription Has Been Sent Successfully.",coming_soon_master)?>";
+									var message = "<?php _e("Description Settings has been updated successfully.",coming_soon_master)?>";
 									var success = "<?php _e("Success!",coming_soon_master)?>";
 								break;
 
 								case "update_subscription_error_settings":
-									var message = "<?php _e("Your Error Settings For Subscription Has Been Sent Successfully.",coming_soon_master)?>";
+									var message = "<?php _e("Error Settings has been updated successfully.",coming_soon_master)?>";
 									var success = "<?php _e("Success!",coming_soon_master)?>";
 								break;
 
@@ -136,6 +136,22 @@ else
 						jQuery(".opacity_overlay").remove();
 					}
 				}
+
+				if(typeof(check_value) != "function")
+		    {
+		     function check_value(id)
+		     {
+		      jQuery(id).val() == "" ? jQuery(id).val(0) : jQuery(id).val();
+		     }
+		    }
+
+				if(typeof(check_color) != "function")
+		    {
+		     function check_color(id)
+		     {
+		      jQuery(id).val() == "" ? jQuery(id).val("#ccc") : jQuery(id).val();
+		     }
+		    }
 
 		<?php
 		if(isset($_REQUEST["page"]))
@@ -1117,6 +1133,7 @@ else
 						({
 							layout:"hex",
 							colorScheme:"dark",
+							color: "<?php echo isset($font_style[2]) ? $font_style[2] : "#000000";?>",
 							onChange:function(hsb,hex,rgb,el,bySetColor)
 							{
 								if(!bySetColor) jQuery(el).val("#"+hex);
@@ -1152,38 +1169,6 @@ else
 						rules:
 						{
 							ux_description_content_subscription:
-							{
-								required: true
-							},
-							ux_txt_sub_des_margin_top_text:
-							{
-								required: true
-							},
-							ux_txt_sub_des_margin_right_text:
-							{
-								required: true
-							},
-							ux_txt_sub_des_margin_bottom_text:
-							{
-								required: true
-							},
-							ux_txt_sub_des_margin_left_text:
-							{
-								required: true
-							},
-							ux_txt_sub_des_padding_top_text:
-							{
-								required: true
-							},
-							ux_txt_sub_des_padding_right_text:
-							{
-								required: true
-							},
-							ux_txt_sub_des_padding_bottom_text:
-							{
-								required: true
-							},
-							ux_txt_sub_des_padding_left_text:
 							{
 								required: true
 							}
@@ -1409,8 +1394,7 @@ else
 						jQuery("#ux_ddl_error_settings_subscription").val("<?php echo isset($meta_data_array["error_settings_subscription"]) ? $meta_data_array["error_settings_subscription"] : "show";?>");
 						jQuery("#ux_ddl_font_style_error_subscription").val("<?php echo isset($meta_data_array["font_style_error_subscription"]) ? $font_style[0] : "20px"?>");
 						jQuery("#ux_ddl_font_error_settings_subscription").val("<?php echo isset($meta_data_array["font_style_error_subscription"]) ? $font_style[1] : "bold";?>");
-						jQuery("#
-						").val("<?php echo isset($meta_data_array["font_family_subscription"]) ? $meta_data_array["font_family_subscription"] : "Roboto Condensed";?>");
+						jQuery("#ux_ddl_font_family_error_subscription").val("<?php echo isset($meta_data_array["font_family_error_subscription"]) ? stripslashes(htmlspecialchars_decode(urldecode($meta_data_array["font_family_error_subscription"]))) : "Roboto Condensed";?>");
 						jQuery("#ux_ddl_error_positions").val("<?php echo isset($meta_data_array["error_position_subscription"]) ? $meta_data_array["error_position_subscription"] : "top";?>");
 
 						change_error_settings_subscription();
@@ -1418,6 +1402,7 @@ else
 						({
 							layout:"hex",
 							colorScheme:"dark",
+							color: "<?php echo isset($font_style[2]) ? $font_style[2] : "";?>",
 							onChange:function(hsb,hex,rgb,el,bySetColor)
 							{
 								if(!bySetColor) jQuery(el).val("#"+hex);
@@ -1798,14 +1783,13 @@ else
 					jQuery("#ux_li_contact_form").addClass("active");
 					jQuery("#ux_li_google_map_settings").addClass("active");
 
-
 					jQuery(document).ready(function()
 					{
-						change_display();
-						digits_dots_only();
+						csm_initialize();
 						change_google_map();
 						change_location();
-						csm_initialize();
+						change_display();
+						digits_dots_only();
 					});
 					var latitude = 35.38453628611739;
 					var longitude = -97.03259696914063;
