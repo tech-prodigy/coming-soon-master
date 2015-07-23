@@ -1096,9 +1096,11 @@ else
 					jQuery("#ux_li_subscription_description_settings").addClass("active");
 					jQuery(document).ready(function()
 					{
-						jQuery("#ux_ddl_font_style_description_subscription").val("<?php echo $font_style[0];?>");
-						jQuery("#ux_ddl_font_description_settings_subscription").val("<?php echo $font_style[1];?>");
-						jQuery("#ux_ddl_font_family_description_subscription").val("<?php echo $meta_data_array["font_family_description_subscription"];?>");
+						jQuery("#ux_ddl_description_settings_subscription").val("<?php echo isset($meta_data_array["description_settings_subscription"]) ? $meta_data_array["description_settings_subscription"] : "show";?>");
+						jQuery("#ux_ddl_font_style_description_subscription").val("<?php echo isset($meta_data_array["font_style_description_subscription"]) ? $font_style[0] : "20px"?>");
+						jQuery("#ux_ddl_font_description_settings_subscription").val("<?php echo isset($meta_data_array["font_style_description_subscription"]) ? $font_style[1] : "bold";?>");
+						jQuery("#ux_ddl_font_family_description_subscription").val("<?php echo isset($meta_data_array["font_family_description_subscription"]) ? $meta_data_array["font_family_description_subscription"] : "Roboto Condensed";?>");
+						jQuery("#ux_ddl_description_positions").val("<?php echo isset($meta_data_array["description_position_subscription"]) ? $meta_data_array["description_position_subscription"] : "top";?>");
 
 						change_description_settings_subscription();
 						jQuery("#ux_clr_description_settings_subscription").colpick
@@ -1142,6 +1144,38 @@ else
 							ux_description_content_subscription:
 							{
 								required: true
+							},
+							ux_txt_sub_des_margin_top_text:
+							{
+								required: true
+							},
+							ux_txt_sub_des_margin_right_text:
+							{
+								required: true
+							},
+							ux_txt_sub_des_margin_bottom_text:
+							{
+								required: true
+							},
+							ux_txt_sub_des_margin_left_text:
+							{
+								required: true
+							},
+							ux_txt_sub_des_padding_top_text:
+							{
+								required: true
+							},
+							ux_txt_sub_des_padding_right_text:
+							{
+								required: true
+							},
+							ux_txt_sub_des_padding_bottom_text:
+							{
+								required: true
+							},
+							ux_txt_sub_des_padding_left_text:
+							{
+								required: true
 							}
 						},
 
@@ -1163,7 +1197,22 @@ else
 						},
 						submitHandler: function(form)
 						{
-
+							jQuery.post(ajaxurl,
+							{
+								data: jQuery("#ux_frm_subscription_description_settings").serialize(),
+								param: "subscription_description_settings_module",
+								action: "coming_soon_master",
+								_wp_nonce:"<?php echo $csm_subscription_description_settings;?>"
+							},
+							function()
+							{
+								overlay_loading("update_subscription_description_settings");
+								setTimeout(function()
+								{
+									remove_overlay();
+									window.location.href = "admin.php?page=csm_subscription_description_settings";
+								}, 3000);
+							});
 						}
 					});
 					<?php
@@ -1347,9 +1396,11 @@ else
 					jQuery("#ux_li_subscription_error_settings").addClass("active");
 					jQuery(document).ready(function()
 					{
-						jQuery("#ux_ddl_font_style_error_subscription").val("<?php echo $font_style[0];?>");
-						jQuery("#ux_ddl_font_heading_settings_subscription").val("<?php echo $font_style[1];?>");
-						jQuery("#ux_ddl_font_family_error_subscription").val("<?php echo $meta_data_array["font_family_subscription"];?>");
+						jQuery("#ux_ddl_error_settings_subscription").val("<?php echo isset($meta_data_array["error_settings_subscription"]) ? $meta_data_array["error_settings_subscription"] : "show";?>");
+						jQuery("#ux_ddl_font_style_error_subscription").val("<?php echo isset($meta_data_array["font_style_error_subscription"]) ? $font_style[0] : "20px"?>");
+						jQuery("#ux_ddl_font_error_settings_subscription").val("<?php echo isset($meta_data_array["font_style_error_subscription"]) ? $font_style[1] : "bold";?>");
+						jQuery("#ux_ddl_font_family_error_subscription").val("<?php echo isset($meta_data_array["font_family_subscription"]) ? $meta_data_array["font_family_subscription"] : "Roboto Condensed";?>");
+						jQuery("#ux_ddl_error_positions").val("<?php echo isset($meta_data_array["error_position_subscription"]) ? $meta_data_array["error_position_subscription"] : "top";?>");
 
 						change_error_settings_subscription();
 						jQuery("#ux_clr_error_settings_subscription").colpick
@@ -1414,7 +1465,22 @@ else
 						},
 						submitHandler: function(form)
 						{
-
+							jQuery.post(ajaxurl,
+							{
+								data: jQuery("#ux_frm_subscription_error_settings").serialize(),
+								param: "subscription_error_settings_module",
+								action: "coming_soon_master",
+								_wp_nonce:"<?php echo $csm_subscription_error_settings;?>"
+							},
+							function()
+							{
+								overlay_loading("update_subscription_error_settings");
+								setTimeout(function()
+								{
+									remove_overlay();
+									window.location.href = "admin.php?page=csm_subscription_error_settings";
+								}, 3000);
+							});
 						}
 					});
 					<?php
@@ -1720,9 +1786,12 @@ else
 					?>
 					jQuery("#ux_li_contact_form").addClass("active");
 					jQuery("#ux_li_google_map_settings").addClass("active");
+				
 
 					jQuery(document).ready(function()
 					{
+						change_display();
+						digits_dots_only();
 						change_google_map();
 						change_location();
 						csm_initialize();
@@ -1732,6 +1801,7 @@ else
 					var input = "";
 
 					load_sidebar_content();
+<<<<<<< HEAD
 					jQuery(document).ready(function()
 					{
 						jQuery("#ux_li_locations").addClass("active");
@@ -1740,6 +1810,9 @@ else
 						csm_initialize();
 						digits_dots_only();
 					});
+=======
+
+>>>>>>> tech-prodigy10
 
 					if(typeof(csm_initialize) != "function")
 					{
