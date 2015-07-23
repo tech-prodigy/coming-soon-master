@@ -98,6 +98,16 @@ else
 						{
 							switch(control_id)
 							{
+								case "social_media_settings":
+									var message = "<?php _e("Social Media Settings has been saved successfully.",coming_soon_master)?>";
+									var success = "<?php _e("Success!",coming_soon_master)?>";
+								break;
+
+								case "button_settings":
+									var message = "<?php _e("Button Settings has been saved successfully.",coming_soon_master)?>";
+									var success = "<?php _e("Success!",coming_soon_master)?>";
+								break;
+
 								case "feature_request":
 									var message = "<?php _e("Your request email has been sent successfully.",coming_soon_master)?>";
 									var success = "<?php _e("Success!",coming_soon_master)?>";
@@ -965,18 +975,115 @@ else
 					}
 					load_sidebar_content();
 
-					var csm_frm_counter = jQuery("#ux_frm_counter");
-					csm_frm_counter.validate
+
+					<?php
+				break;
+
+				case "csm_social_settings":
+					?>
+					jQuery("#ux_li_social_settings").addClass("active");
+					var csm_frm_social_settings = jQuery("#ux_frm_social_settings");
+					csm_frm_social_settings.validate
 					({
 						rules:
 						{
-							ux_txt_launch_date:
+							ux_txt_email:
 							{
-								required: true
+								required: true,
+								email: true
 							},
-							ux_txt_countdown_text:
+							ux_txt_website:
 							{
-								required: true
+								required: true,
+								url: true
+							},
+							ux_txt_google:
+							{
+								url: true
+							},
+							ux_txt_utube:
+							{
+								url: true
+							},
+							ux_txt_insta:
+							{
+								url: true
+							},
+							ux_txt_pinterest:
+							{
+								url: true
+							},
+							ux_txt_flickr:
+							{
+								url: true
+							},
+							ux_txt_googleplus:
+							{
+								url: true
+							},
+							ux_txt_vimeo:
+							{
+								url: true
+							},
+							ux_txt_linkedin:
+							{
+								url: true
+							},
+							ux_txt_skype:
+							{
+								url: true
+							},
+							ux_txt_tumblr:
+							{
+								url: true
+							},
+							ux_txt_dribble:
+							{
+								url: true
+							},
+							ux_txt_github:
+							{
+								url: true
+							},
+							ux_txt_rss:
+							{
+								url: true
+							},
+							ux_txt_fb:
+							{
+								url: true
+							},
+							ux_txt_yahoo:
+							{
+								url: true
+							},
+							ux_txt_blogger:
+							{
+								url: true
+							},
+							ux_txt_wordpress:
+							{
+								url: true
+							},
+							ux_txt_myspace:
+							{
+								url: true
+							},
+							ux_txt_foursquare:
+							{
+								url: true
+							},
+							ux_txt_livejournal:
+							{
+								url: true
+							},
+							ux_txt_twitter:
+							{
+								url: true
+							},
+							ux_txt_deviantart:
+							{
+								url: true
 							}
 						},
 
@@ -998,15 +1105,24 @@ else
 						},
 						submitHandler: function(form)
 						{
-
+							jQuery.post(ajaxurl,
+							{
+								data: jQuery("#ux_frm_social_settings").serialize(),
+								param: "social_settings_module",
+								action: "coming_soon_master",
+								_wp_nonce:"<?php echo $csm_social_settings;?>"
+							},
+							function()
+							{
+								overlay_loading("social_media_settings");
+								setTimeout(function()
+								{
+									remove_overlay();
+									window.location.href = "admin.php?page=csm_social_settings";
+								}, 3000);
+							});
 						}
 					});
-					<?php
-				break;
-
-				case "csm_social_settings":
-					?>
-					jQuery("#ux_li_social_settings").addClass("active");
 					load_sidebar_content();
 					<?php
 				break;
@@ -1096,11 +1212,9 @@ else
 					jQuery("#ux_li_subscription_description_settings").addClass("active");
 					jQuery(document).ready(function()
 					{
-						jQuery("#ux_ddl_description_settings_subscription").val("<?php echo isset($meta_data_array["description_settings_subscription"]) ? $meta_data_array["description_settings_subscription"] : "show";?>");
-						jQuery("#ux_ddl_font_style_description_subscription").val("<?php echo isset($meta_data_array["font_style_description_subscription"]) ? $font_style[0] : "20px"?>");
-						jQuery("#ux_ddl_font_description_settings_subscription").val("<?php echo isset($meta_data_array["font_style_description_subscription"]) ? $font_style[1] : "bold";?>");
-						jQuery("#ux_ddl_font_family_description_subscription").val("<?php echo isset($meta_data_array["font_family_description_subscription"]) ? $meta_data_array["font_family_description_subscription"] : "Roboto Condensed";?>");
-						jQuery("#ux_ddl_description_positions").val("<?php echo isset($meta_data_array["description_position_subscription"]) ? $meta_data_array["description_position_subscription"] : "top";?>");
+						jQuery("#ux_ddl_font_style_description_subscription").val("<?php echo $font_style[0];?>");
+						jQuery("#ux_ddl_font_description_settings_subscription").val("<?php echo $font_style[1];?>");
+						jQuery("#ux_ddl_font_family_description_subscription").val("<?php echo $meta_data_array["font_family_description_subscription"];?>");
 
 						change_description_settings_subscription();
 						jQuery("#ux_clr_description_settings_subscription").colpick
@@ -1144,38 +1258,6 @@ else
 							ux_description_content_subscription:
 							{
 								required: true
-							},
-							ux_txt_sub_des_margin_top_text:
-							{
-								required: true
-							},
-							ux_txt_sub_des_margin_right_text:
-							{
-								required: true
-							},
-							ux_txt_sub_des_margin_bottom_text:
-							{
-								required: true
-							},
-							ux_txt_sub_des_margin_left_text:
-							{
-								required: true
-							},
-							ux_txt_sub_des_padding_top_text:
-							{
-								required: true
-							},
-							ux_txt_sub_des_padding_right_text:
-							{
-								required: true
-							},
-							ux_txt_sub_des_padding_bottom_text:
-							{
-								required: true
-							},
-							ux_txt_sub_des_padding_left_text:
-							{
-								required: true
 							}
 						},
 
@@ -1197,22 +1279,7 @@ else
 						},
 						submitHandler: function(form)
 						{
-							jQuery.post(ajaxurl,
-							{
-								data: jQuery("#ux_frm_subscription_description_settings").serialize(),
-								param: "subscription_description_settings_module",
-								action: "coming_soon_master",
-								_wp_nonce:"<?php echo $csm_subscription_description_settings;?>"
-							},
-							function()
-							{
-								overlay_loading("update_subscription_description_settings");
-								setTimeout(function()
-								{
-									remove_overlay();
-									window.location.href = "admin.php?page=csm_subscription_description_settings";
-								}, 3000);
-							});
+
 						}
 					});
 					<?php
@@ -1276,6 +1343,10 @@ else
 							{
 								required: true
 							},
+							ux_clr_button_settings_subscription:
+							{
+								required: true
+							},
 							ux_txt_button_color:
 							{
 								required: true
@@ -1283,6 +1354,18 @@ else
 							ux_txt_hover_color:
 							{
 								required: true
+							}
+							ux_txt_marginmnb_text:
+							{
+								required: true
+							},
+							ux_txt_marginmna_text:
+							{
+								required: true
+							},
+							ux_txtarea_css_button:
+							{
+								required true
 							}
 						},
 
@@ -1304,7 +1387,22 @@ else
 						},
 						submitHandler: function(form)
 						{
-
+							jQuery.post(ajaxurl,
+							{
+								data: jQuery("#ux_frm_button_settings").serialize(),
+								param: "button_settings_module",
+								action: "coming_soon_master",
+								_wp_nonce:"<?php echo $csm_button_settings;?>"
+							},
+							function()
+							{
+								overlay_loading("button_settings");
+								setTimeout(function()
+								{
+									remove_overlay();
+									window.location.href = "admin.php?page=csm_subscription_button_settings";
+								}, 3000);
+							});
 						}
 					});
 					load_sidebar_content();
@@ -1363,6 +1461,10 @@ else
 							ux_success_content_subscription:
 							{
 								required: true
+							},
+							ux_clr_success_settings_subscription:
+							{
+								required true
 							}
 						},
 
@@ -1384,7 +1486,23 @@ else
 						},
 						submitHandler: function(form)
 						{
-
+							jQuery.post(ajaxurl,
+							{
+								data: jQuery("#ux_frm_subscription_success_settings").serialize(),
+								param: "success_settings_module",
+								action: "coming_soon_master",
+								_wp_nonce:"<?php echo $csm_success_settings;?>"
+							},
+							function()
+							{
+								overlay_loading("sucess_settings");
+								setTimeout(function()
+								{
+									remove_overlay();
+									window.location.href = "admin.php?page=csm_subscription_success_settings";
+								}, 3000);
+							});
+						}
 						}
 					});
 					<?php
@@ -1396,11 +1514,9 @@ else
 					jQuery("#ux_li_subscription_error_settings").addClass("active");
 					jQuery(document).ready(function()
 					{
-						jQuery("#ux_ddl_error_settings_subscription").val("<?php echo isset($meta_data_array["error_settings_subscription"]) ? $meta_data_array["error_settings_subscription"] : "show";?>");
-						jQuery("#ux_ddl_font_style_error_subscription").val("<?php echo isset($meta_data_array["font_style_error_subscription"]) ? $font_style[0] : "20px"?>");
-						jQuery("#ux_ddl_font_error_settings_subscription").val("<?php echo isset($meta_data_array["font_style_error_subscription"]) ? $font_style[1] : "bold";?>");
-						jQuery("#ux_ddl_font_family_error_subscription").val("<?php echo isset($meta_data_array["font_family_subscription"]) ? $meta_data_array["font_family_subscription"] : "Roboto Condensed";?>");
-						jQuery("#ux_ddl_error_positions").val("<?php echo isset($meta_data_array["error_position_subscription"]) ? $meta_data_array["error_position_subscription"] : "top";?>");
+						jQuery("#ux_ddl_font_style_error_subscription").val("<?php echo $font_style[0];?>");
+						jQuery("#ux_ddl_font_heading_settings_subscription").val("<?php echo $font_style[1];?>");
+						jQuery("#ux_ddl_font_family_error_subscription").val("<?php echo $meta_data_array["font_family_subscription"];?>");
 
 						change_error_settings_subscription();
 						jQuery("#ux_clr_error_settings_subscription").colpick
@@ -1465,22 +1581,7 @@ else
 						},
 						submitHandler: function(form)
 						{
-							jQuery.post(ajaxurl,
-							{
-								data: jQuery("#ux_frm_subscription_error_settings").serialize(),
-								param: "subscription_error_settings_module",
-								action: "coming_soon_master",
-								_wp_nonce:"<?php echo $csm_subscription_error_settings;?>"
-							},
-							function()
-							{
-								overlay_loading("update_subscription_error_settings");
-								setTimeout(function()
-								{
-									remove_overlay();
-									window.location.href = "admin.php?page=csm_subscription_error_settings";
-								}, 3000);
-							});
+
 						}
 					});
 					<?php
@@ -1676,6 +1777,14 @@ else
 							{
 								required: true
 							}
+							ux_txt_marginmnb_text:
+							{
+								digits: true
+							}
+							ux_txt_marginmna_text:
+							{
+								digits: true
+							}
 						},
 
 						errorPlacement: function (error, element)
@@ -1696,7 +1805,22 @@ else
 						},
 						submitHandler: function(form)
 						{
-
+							jQuery.post(ajaxurl,
+							{
+								data: jQuery("#ux_frm_button_settings").serialize(),
+								param: "button_settings_module",
+								action: "coming_soon_master",
+								_wp_nonce:"<?php echo $csm_button_settings;?>"
+							},
+							function()
+							{
+								overlay_loading("button_settings");
+								setTimeout(function()
+								{
+									remove_overlay();
+									window.location.href = "admin.php?page=csm_social_settings";
+								}, 3000);
+							});
 						}
 					});
 					load_sidebar_content();
@@ -1786,12 +1910,9 @@ else
 					?>
 					jQuery("#ux_li_contact_form").addClass("active");
 					jQuery("#ux_li_google_map_settings").addClass("active");
-				
 
 					jQuery(document).ready(function()
 					{
-						change_display();
-						digits_dots_only();
 						change_google_map();
 						change_location();
 						csm_initialize();
@@ -1801,7 +1922,6 @@ else
 					var input = "";
 
 					load_sidebar_content();
-<<<<<<< HEAD
 					jQuery(document).ready(function()
 					{
 						jQuery("#ux_li_locations").addClass("active");
@@ -1810,9 +1930,6 @@ else
 						csm_initialize();
 						digits_dots_only();
 					});
-=======
-
->>>>>>> tech-prodigy10
 
 					if(typeof(csm_initialize) != "function")
 					{

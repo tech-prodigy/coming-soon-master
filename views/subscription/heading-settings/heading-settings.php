@@ -10,19 +10,19 @@ else
 		case "administrator":
 			$user_role_permission = "manage_options";
 		break;
-
+		
 		case "author":
 			$user_role_permission = "publish_posts";
 		break;
-
+		
 		case "editor":
 			$user_role_permission = "public_pages";
 		break;
-
+		
 		case "contributor":
 			$user_role_permission = "edit_posts";
 		break;
-
+		
 		case "subscriber":
 			$user_role_permission = "read";
 		break;
@@ -62,7 +62,7 @@ else
 							</span>
 						</li>
 					</ul>
-				</div>
+				</div>	
 				<div class="row">
 					<div class="col-md-12">
 						<div class="portlet box purple">
@@ -95,7 +95,7 @@ else
 												</label>
 												<?php
 												$distribution = stripslashes(urldecode(isset($meta_data_array["heading_text_subscription"]) ? $meta_data_array["heading_text_subscription"] : ""));
-												wp_editor( $distribution, $id ="ux_heading_content_subscription", array("media_buttons" => false, "textarea_rows" => 8, "tabindex" => 4 ) );
+												wp_editor( $distribution, $id ="ux_heading_content_subscription", array("media_buttons" => false, "textarea_rows" => 8, "tabindex" => 4 ) ); 
 												?>
 											</div>
 											<div class="row">
@@ -108,20 +108,20 @@ else
 														</label>
 														<div class="input-icon right">
 															<select class="form-control input-width-25 input-inline" name="ux_ddl_font_style_heading_subscription" id="ux_ddl_font_style_heading_subscription">
-																<?php
+																<?php 
 																for($flag = 1;$flag <= 100;$flag++)
 																{
 																	if($flag < 10)
 																	{
 																		?>
 																		<option value="<?php echo $flag;?>px">0<?php echo $flag;?> Px</option>
-																		<?php
+																		<?php 
 																	}
 																	else
 																	{
 																		?>
 																		<option value="<?php echo $flag;?>px"><?php echo $flag;?> Px</option>
-																		<?php
+																		<?php 
 																	}
 																}
 																?>
@@ -137,13 +137,13 @@ else
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
-														<label class="control-label">
+														<label class="control-label">	
 															<?php _e("Font Family",coming_soon_master)?> :
 															<i class="icon-question tooltips" data-original-title="<?php _e("Please Select Font Family",coming_soon_master)?>" data-placement="right"></i>
 															<span class="required" aria-required="true">*</span>
 														</label>
 														<select class="form-control" name="ux_ddl_font_family_heading_subscription" id="ux_ddl_font_family_heading_subscription">
-															<?php
+															<?php 
 															foreach($web_font_list as $key => $val)
 															{
 																?>
@@ -156,7 +156,7 @@ else
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="control-label">
+												<label class="control-label">	
 													<?php _e("Heading Position",coming_soon_master)?> :
 													<i class="icon-question tooltips" data-original-title="<?php _e("Please Select Heading Position",coming_soon_master)?>" data-placement="right"></i>
 													<span class="required" aria-required="true">*</span>
@@ -204,7 +204,7 @@ else
 												<label class="control-label">
 													<?php _e("Custom CSS",coming_soon_master) ?> :
 													<i class="icon-question tooltips" data-original-title="<?php _e("Enter Custom CSS",coming_soon_master)?>" data-placement="right"></i>
-													
+													<span class="required" aria-required="true">*</span>
 												</label>
 												<textarea class="form-control" name="ux_txtarea_css_heading_sub" id="ux_txtarea_css_heading_sub" placeholder="<?php _e("Enter Custom CSS",coming_soon_master); ?>"></textarea>
 											</div>

@@ -10,19 +10,19 @@ else
 		case "administrator":
 			$user_role_permission = "manage_options";
 		break;
-		
+
 		case "author":
 			$user_role_permission = "publish_posts";
 		break;
-		
+
 		case "editor":
 			$user_role_permission = "public_pages";
 		break;
-		
+
 		case "contributor":
 			$user_role_permission = "edit_posts";
 		break;
-		
+
 		case "subscriber":
 			$user_role_permission = "read";
 		break;
@@ -33,7 +33,7 @@ else
 	}
 	else
 	{
-
+		$csm_success_settings = wp_create_nonce("comming_soon_master_sucess_settings");
 		$padding = explode(",",isset($meta_data_array["padding_sucess_subscription"]) ? $meta_data_array["padding_sucess_subscription"] : "");
 		$margin = explode(",",isset($meta_data_array["margin_success_subscription"]) ? $meta_data_array["margin_success_subscription"] : "");
 		$font_style= explode(",",isset($meta_data_array["font_style_sucess_subscription"]) ? $meta_data_array["font_style_sucess_subscription"] : "");
@@ -62,7 +62,7 @@ else
 							</span>
 						</li>
 					</ul>
-				</div>	
+				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="portlet box purple">
@@ -94,8 +94,8 @@ else
 													<span class="required" aria-required="true">*</span>
 												</label>
 												<?php
-												$distribution = stripslashes(urldecode(isset($meta_data_array["success_text_subscription"]) ? $meta_data_array["success_text_subscription"] : "")); 
-												wp_editor( $distribution, $id ="ux_success_content_subscription", array("media_buttons" => false, "textarea_rows" => 8, "tabindex" => 4 ) ); 
+												$distribution = stripslashes(urldecode(isset($meta_data_array["success_text_subscription"]) ? $meta_data_array["success_text_subscription"] : ""));
+												wp_editor( $distribution, $id ="ux_success_content_subscription", array("media_buttons" => false, "textarea_rows" => 8, "tabindex" => 4 ) );
 												?>
 											</div>
 											<div class="row">
@@ -108,20 +108,20 @@ else
 														</label>
 														<div class="input-icon right">
 															<select class="form-control input-width-25 input-inline" name="ux_ddl_font_style_success_subscription" id="ux_ddl_font_style_success_subscription">
-															<?php 
+															<?php
 															for($flag = 1;$flag <= 100;$flag++)
 															{
 																if($flag < 10)
 																{
 																	?>
 																	<option value="<?php echo $flag;?>px">0<?php echo $flag;?> Px</option>
-																	<?php 
+																	<?php
 																}
 																else
 																{
 																	?>
 																	<option value="<?php echo $flag;?>px"><?php echo $flag;?> Px</option>
-																	<?php 
+																	<?php
 																}
 															}
 															?>
@@ -137,13 +137,13 @@ else
 												</div>
 												<div class="col-md-6">
 													<div class="form-group">
-														<label class="control-label">	
+														<label class="control-label">
 															<?php _e("Font Family",coming_soon_master)?> :
 															<i class="icon-question tooltips" data-original-title="<?php _e("Please Select Font Family",coming_soon_master)?>" data-placement="right"></i>
 															<span class="required" aria-required="true">*</span>
 														</label>
 														<select class="form-control" name="ux_ddl_font_family_success_subscription" id="ux_ddl_font_family_success_subscription">
-															<?php 
+															<?php
 															foreach($web_font_list as $key => $val)
 															{
 																?>
@@ -156,7 +156,7 @@ else
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="control-label">	
+												<label class="control-label">
 													<?php _e("Success Position",coming_soon_master)?> :
 													<i class="icon-question tooltips" data-original-title="<?php _e("Please Select Success Position",coming_soon_master)?>" data-placement="right"></i>
 													<span class="required" aria-required="true">*</span>

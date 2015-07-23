@@ -188,55 +188,44 @@ else
 					die();
 				break;
 
-				case "subscription_description_settings_module" :
-					if(wp_verify_nonce($_REQUEST["_wp_nonce"], "coming_soon_master_subscription_description_settings"))
+				case "social_settings_module" :
+					if(wp_verify_nonce($_REQUEST["_wp_nonce"], "coming_soon_master_social_settings"))
 					{
 						parse_str($_REQUEST["data"],$form_data);
-						$update_sub_des_settings = array();
+						$update_favicon_settings = array();
 						$where = array();
 
-						$update_sub_des_settings["description_settings_subscription"] = esc_attr($form_data["ux_ddl_description_settings_subscription"]);
-						$update_sub_des_settings["description_text_subscription"] = esc_attr($form_data["ux_description_content_subscription"]);
-						$update_sub_des_settings["font_style_description_subscription"] = esc_attr(implode(",",$form_data["ux_ddl_font_description_subscription"]));
-						$update_sub_des_settings["font_family_description_subscription"] = esc_attr($form_data["ux_ddl_font_family_description_subscription"]);
-						$update_sub_des_settings["description_position_subscription"] = esc_attr($form_data["ux_ddl_description_positions"]);
-						$update_sub_des_settings["margin_description_subscription"] = esc_attr(implode(",",$form_data["ux_txt_sub_des_margin_text"]));
-						$update_sub_des_settings["padding_description_subscription"] = esc_attr(implode(",",$form_data["ux_txt_sub_des_padding_text"]));
-						$update_sub_des_settings["custom_css_sub_des"] = esc_attr($form_data["ux_txtarea_css_des_sub"]);
+						$update_favicon_settings["email"] = esc_attr($form_data["ux_txt_email"]);
+						$update_favicon_settings["website_url"] = esc_attr($form_data["ux_txt_website"]);
+						$update_favicon_settings["google"] = esc_attr($form_data["ux_txt_google"]);
+						$update_favicon_settings["youtube"] = esc_attr($form_data["ux_txt_utube"]);
+						$update_favicon_settings["instagram"] = esc_attr($form_data["ux_txt_insta"]);
+						$update_favicon_settings["pinterest"] = esc_attr($form_data["ux_txt_pinterest"]);
+						$update_favicon_settings["flickr"] = esc_attr($form_data["ux_txt_flickr"]);
+						$update_favicon_settings["google_plus"] = esc_attr($form_data["ux_txt_googleplus"]);
+						$update_favicon_settings["vimeo"] = esc_attr($form_data["ux_txt_vimeo"]);
+						$update_favicon_settings["linkedin"] = esc_attr($form_data["ux_txt_linkedin"]);
+						$update_favicon_settings["skype"] = esc_attr($form_data["ux_txt_skype"]);
+						$update_favicon_settings["tumblr"] = esc_attr($form_data["ux_txt_tumblr"]);
+						$update_favicon_settings["dribble"] = esc_attr($form_data["ux_txt_dribble"]);
+						$update_favicon_settings["github"] = esc_attr($form_data["ux_txt_github"]);
+						$update_favicon_settings["rss"] = esc_attr($form_data["ux_txt_rss"]);
+						$update_favicon_settings["facebook"] = esc_attr($form_data["ux_txt_fb"]);
+						$update_favicon_settings["yahoo"] = esc_attr($form_data["ux_txt_yahoo"]);
+						$update_favicon_settings["blogger"] = esc_attr($form_data["ux_txt_blogger"]);
+						$update_favicon_settings["wordpress"] = esc_attr($form_data["ux_txt_wordpress"]);
+						$update_favicon_settings["myspace"] = esc_attr($form_data["ux_txt_myspace"]);
+						$update_favicon_settings["foursquare"] = esc_attr($form_data["ux_txt_foursquare"]);
+						$update_favicon_settings["livejournal"] = esc_attr($form_data["ux_txt_livejournal"]);
+						$update_favicon_settings["twitter"] = esc_attr($form_data["ux_txt_twitter"]);
+						$update_favicon_settings["deviantart"] = esc_attr($form_data["ux_txt_deviantart"]);
 
-						foreach($update_sub_des_settings as $keys => $value)
+						foreach($update_favicon_settings as $keys => $value)
 						{
-							$update_sub_des_settings = array();
+							$update_favicon_settings = array();
 							$where["meta_key"] = $keys;
-							$update_sub_des_value["meta_value"] = $value;
-							$obj_dbHelper->updateCommand(coming_soon_meta(),$update_sub_des_value,$where);
-						}
-					}
-					die();
-				break;
-
-				case "subscription_error_settings_module" :
-					if(wp_verify_nonce($_REQUEST["_wp_nonce"], "coming_soon_master_subscription_error_settings"))
-					{
-						parse_str($_REQUEST["data"],$form_data);
-						$update_sub_error_settings = array();
-						$where = array();
-
-						$update_sub_error_settings["error_settings_subscription"] = esc_attr($form_data["ux_ddl_error_settings_subscription"]);
-						$update_sub_error_settings["error_text_subscription"] = esc_attr($form_data["ux_error_content_subscription"]);
-						$update_sub_error_settings["font_style_error_subscription"] = esc_attr(implode(",",$form_data["ux_ddl_font_error_subscription"]));
-						$update_sub_error_settings["font_family_subscription"] = esc_attr($form_data["ux_ddl_font_family_error_subscription"]);
-						$update_sub_error_settings["error_position_subscription"] = esc_attr($form_data["ux_ddl_error_positions"]);
-						$update_sub_error_settings["margin_error_subscription"] = esc_attr(implode(",",$form_data["ux_txt_sub_error_margin_text"]));
-						$update_sub_error_settings["padding_error_subscription"] = esc_attr(implode(",",$form_data["ux_txt_sub_error_padding_text"]));
-						$update_sub_error_settings["custom_css_error"] = esc_attr($form_data["ux_txtarea_css_error"]);
-
-						foreach($update_sub_error_settings as $keys => $value)
-						{
-							$update_sub_error_settings = array();
-							$where["meta_key"] = $keys;
-							$update_sub_error_value["meta_value"] = $value;
-							$obj_dbHelper->updateCommand(coming_soon_meta(),$update_sub_error_value,$where);
+							$update_favicon_value["meta_value"] = $value;
+							$obj_dbHelper->updateCommand(coming_soon_meta(),$update_favicon_value,$where);
 						}
 					}
 					die();

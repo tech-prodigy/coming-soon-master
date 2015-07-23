@@ -33,6 +33,7 @@ else
 	}
 	else
 	{
+			$csm_button_settings = wp_create_nonce("coming_soon_master_button_settings");
 
 		$padding = explode(",",isset($meta_data_array["padding_button_subscription"]) ? $meta_data_array["padding_button_subscription"] : "");
 		$margin = explode(",",isset($meta_data_array["margin_button_subscription"]) ? $meta_data_array["margin_button_subscription"] : "");
@@ -229,7 +230,7 @@ else
 										<div class="line-separator"></div>
 										<div class="form-actions">
 											<div class="pull-right">
-												<input type="submit" class="btn purple" id="btn_save_button_settings" name="btn_save_button_settings" value="<?php _e("Save Settings",coming_soon_master);?>">
+												<input type="submit" class="btn purple" id="ux_btn_save_button_settings" name="ux_btn_save_button_settings" value="<?php _e("Save Settings",coming_soon_master);?>">
 											</div>
 										</div>
 									</div>
